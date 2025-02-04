@@ -6,9 +6,9 @@ import subprocess
 import numpy
 import cv2
 
-class CameraNode(Node):
+class CameraSensor(Node):
     def __init__(self):
-        super().__init__('camera_node')
+        super().__init__('camera_sensor')
 
         self.camera_publisher = self.create_publisher(Bool, '/camera_data', 10)
 
@@ -31,16 +31,10 @@ class CameraNode(Node):
         if yellow_percentage > 0.1:
             self.camera_publisher.publish(self.bool_msg)
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = CameraNode()
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        node.get_logger().info('Shutting down...')
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
+def main():
+    rclpy.init()
+    camera_sensor = CameraSensor()
+    rclpy.spin(camera_sensor)
 
 if __name__ == '__main__':
     main()
