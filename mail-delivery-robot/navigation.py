@@ -1,1 +1,0 @@
-// This module solely focuses on the navigation of the robot, this will be running nearly all the time. It is responsible for ensuring the robot travels to the correct beacon and for intersection detection and handling.
