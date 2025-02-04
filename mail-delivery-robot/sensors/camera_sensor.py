@@ -20,12 +20,12 @@ class CameraSensor(Node):
         self.lower_yellow = numpy.array([5, 50, 50])
         self.upper_yellow = numpy.array([45, 255, 255])
 
-        self.image_width = 640
-        self.image_height = 480
-        self.total_pixels = self.image_width * self.image_height
+        self.image_width = "640"
+        self.image_height = "480"
+        self.total_pixels = int(self.image_width) * int(self.image_height)
 
     def get_yellow(self):
-        subprocess.run(["libcamera-still", "--output", "image.jpg", "--immediate", "--width", "640", "--height", "480", "-n", "--verbose", "0"])
+        subprocess.run(["libcamera-still", "--output", "image.jpg", "--immediate", "--width", self.image_width, "--height", self.image_height, "-n", "--verbose", "0"])
         image = cv2.imread("image.jpg")
         hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
         yellow_mask = cv2.inRange(hsv_image, self.lower_yellow, self.upper_yellow)
