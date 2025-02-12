@@ -17,26 +17,37 @@ def generate_launch_description():
         ),
         Node(
             package='mail-delivery-robot',
-            namespace='sensors',
+            executable='captain',
+            name='captain'
+        ),
+        Node(
+            package='mail-delivery-robot',
             executable='camera_sensor',
             name='camera_sensor'
         ),
         Node(
             package='mail-delivery-robot',
-            namespace='sensors',
             executable='lidar_sensor',
             name='lidar_sensor'
         ),
         Node(
             package='mail-delivery-robot',
-            namespace='sensors',
             executable='bumper_sensor',
             name='bumper_sensor'
         ),
         Node(
             package='mail-delivery-robot',
-            namespace='sensors',
             executable='beacon_sensor',
             name='beacon_sensor'
+        ),
+        Node(
+            package='mail-delivery-robot',
+            executable='avoidance_layer',
+            name='avoidance_layer'
+        ),
+        Node(
+            package='mail-delivery-robot',
+            executable='travel_layer',
+            name='travel_layer'
         )
    ])

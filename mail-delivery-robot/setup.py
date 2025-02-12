@@ -19,6 +19,7 @@ setup(
                 'src.communication.client',
                 'src.communication.music_player',
                 'src.control.captain',
+                'src.control.action_translator',
                 'src.tools.csv_parser',
                 'src.tools.map',
                 'src.tools.nav_parser'

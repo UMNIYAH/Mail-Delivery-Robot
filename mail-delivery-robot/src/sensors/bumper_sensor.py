@@ -2,6 +2,8 @@ from std_msgs.msg import String
 import rclpy
 from rclpy.node import Node
 from enum import Enum
+from irobot_create_msgs.msg import HazardDetection, HazardDetectionVector
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
 
 from tools.csv_parser import loadConfig
 
@@ -39,8 +41,6 @@ class BumperSensor(Node):
         # The publishers for the node.
         self.publisher_ = self.create_publisher(String, 'bumper_data', 10)
         
-        from irobot_create_msgs.msg import HazardDetection, HazardDetectionVector
-        from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
         self.bumperSubscriber = self.create_subscription(HazardDetectionVector, 'hazard_detection', self.read_bump, qos_profile=QoSProfile(
             reliability=QoSReliabilityPolicy.BEST_EFFORT,
             depth=10))
