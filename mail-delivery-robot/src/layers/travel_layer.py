@@ -15,6 +15,7 @@ class TravelLayer(Node):
 
     @Subscribers:
     - Listens to /lidar_data for data about nearby walls
+    - Listens to /destinations for data about the robot's current destination
 
     @Publishers:
     - Publishes actions to /actions
@@ -27,6 +28,7 @@ class TravelLayer(Node):
         super().__init__('travel_layer')
 
         self.lidar_data_sub = self.create_subscription(String, 'lidar_data', self.lidar_data_callback, 10)
+        self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
 
@@ -44,7 +46,13 @@ class TravelLayer(Node):
         The callback for /lidar_data.
         Reads information about nearby walls.
         '''
-        #todo: this
+        pass
+
+    def destinations_callback(self, data):
+        '''
+        The callback for /destinations.
+        Reads the robot's current destination when one is published.
+        '''
         pass
 
     def update_actions(self):
