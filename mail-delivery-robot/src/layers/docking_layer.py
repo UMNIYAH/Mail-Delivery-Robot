@@ -42,6 +42,13 @@ class DockingLayer(Node):
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
 
+        self.no_msg = String()
+        self.no_msg.data = '1:NONE'
+        self.dock_msg = String()
+        self.dock_msg.data = '1:DOCK'
+        self.undock_msg = String()
+        self.undock_msg.data = '1:UNDOCK'
+
         self.timer = self.create_timer(0.2, self.update_actions)
 
         self.action_publisher.publish(self.no_msg)

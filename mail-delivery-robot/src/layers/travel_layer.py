@@ -3,7 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from enum import Enum
 
-class AvoidanceLayerStates(Enum):
+class TravelLayerStates(Enum):
     '''
     An enum for the internal states of the travel layer.
     '''

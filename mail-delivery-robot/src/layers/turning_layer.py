@@ -36,6 +36,9 @@ class TurningLayer(Node):
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
 
+        self.no_msg = String()
+        self.no_msg.data = '2:NONE'
+
         self.timer = self.create_timer(0.2, self.update_actions)
 
         self.action_publisher.publish(self.no_msg)
