@@ -32,7 +32,9 @@ class AvoidanceLayer(Node):
         self.bump_data = False
 
         self.bumper_data_sub = self.create_subscription(String, 'bumper_data', self.update_collision, 10)
+        
         self.action_publisher = self.create_publisher(String, 'actions', 10)
+        
         self.wait_msg = String()
         self.wait_msg.data = '0:WAIT'
         self.no_msg = String()
@@ -63,12 +65,17 @@ class AvoidanceLayer(Node):
         updates to /actions when necessary
         '''
         if self.state == AvoidanceLayerStates.NO_COLLISION and self.bump_data:
+            #Bumper sensor was triggered, transition from state NO_COLLISION to state COLLISION
             self.state = AvoidanceLayerStates.COLLISION
             self.delay_counter = 25
         elif self.state == AvoidanceLayerStates.COLLISION and self.delay_counter:
+            #Begin sending instructions to deal with the collision
             self.action_publisher.publish(self.wait_msg)
             self.delay_counter -= 1
         elif self.state == AvoidanceLayerStates.COLLISION:
+            #Collision has resolved, transition to state NO_COLLISION, and
+            #IMPORTANT: send NONE action message when the subroutine resolves,
+            #otherwise the captain would continue to execute the last instruction
             self.state = AvoidanceLayerStates.NO_COLLISION
             self.action_publisher.publish(self.no_msg)
             self.delay_counter = 25

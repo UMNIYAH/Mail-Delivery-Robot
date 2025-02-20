@@ -27,6 +27,7 @@ class TravelLayer(Node):
         super().__init__('travel_layer')
 
         self.lidar_data_sub = self.create_subscription(String, 'lidar_data', self.lidar_data_callback, 10)
+        
         self.action_publisher = self.create_publisher(String, 'actions', 10)
 
         self.go_msg = String()
