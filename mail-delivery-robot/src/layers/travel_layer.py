@@ -40,10 +40,18 @@ class TravelLayer(Node):
         self.action_publisher.publish(self.no_msg)
 
     def lidar_data_callback(self, data):
+        '''
+        The callback for /lidar_data.
+        Reads information about nearby walls.
+        '''
         #todo: this
         pass
 
     def update_actions(self):
+        '''
+        The timer callback. Updates the internal state of this node and sends
+        updates to /actions when necessary
+        '''
         #todo: implement this beyond this testing version
         self.action_publisher.publish(self.go_msg)
 

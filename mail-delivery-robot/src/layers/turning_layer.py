@@ -41,18 +41,38 @@ class TurningLayer(Node):
         self.action_publisher.publish(self.no_msg)
 
     def destinations_callback(self, data):
+        '''
+        The callback for /destinations.
+        Reads the robot's current destination when one is published.
+        '''
         pass
 
     def beacon_data_callback(self, data):
+        '''
+        The callback for /beacon_data.
+        Reads information about nearby beacons.
+        '''
         pass
 
     def lidar_data_callback(self, data):
+        '''
+        The callback for /lidar_data.
+        Reads information about nearby walls.
+        '''
         pass
 
     def camera_data_callback(self, data):
+        '''
+        The callback for /camera_data.
+        Reads information about intersection markers the robot passes over.
+        '''
         pass
 
     def update_actions(self):
+        '''
+        The timer callback. Updates the internal state of this node and sends
+        updates to /actions when necessary
+        '''
         pass
 
 def main():

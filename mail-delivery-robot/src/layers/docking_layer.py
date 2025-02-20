@@ -2,12 +2,17 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from enum import Enum
+from irobot_create_msgs.msg import DockStatus
+import subprocess
 
 class DockingLayerStates(Enum):
     '''
     An enum for the internal states of the docking layer.
     '''
-    #todo: this
+    NO_DEST = 'NO_DEST'
+    HAS_DEST = 'HAS_DEST'
+    SHOULD_DOCK = 'SHOULD_DOCK'
+    SHOULD_UNDOCK = 'SHOULD_UNDOCK'
 
 class DockingLayer(Node):
     '''
@@ -16,6 +21,7 @@ class DockingLayer(Node):
     @Subscribers:
     - Listens to /destinations for data about the robot's current destination
     - Listens to /beacon_data for data about nearby beacons
+    - Listens to /dock_status for data about nearby docking stations and the robot's dock status
 
     @Publishers:
     - Publishes actions to /actions
@@ -27,8 +33,12 @@ class DockingLayer(Node):
         '''
         super().__init__('docking_layer')
 
+        self.state = DockingLayerStates.NO_DEST
+        self.current_destination = 'NONE'
+
         self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
         self.beacon_data_sub = self.create_subscription(String, 'beacon_data', self.beacon_data_callback, 10)
+        self.dock_status_sub = self.create_subscription(DockStatus, 'dock_status', self.dock_status_callback, 10)
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
 
@@ -37,12 +47,31 @@ class DockingLayer(Node):
         self.action_publisher.publish(self.no_msg)
 
     def destinations_callback(self, data):
+        '''
+        The callback for /destinations.
+        Reads the robot's current destination when one is published.
+        '''
         pass
 
     def beacon_data_callback(self, data):
+        '''
+        The callback for /beacon_data.
+        Reads information about nearby beacons.
+        '''
+        pass
+
+    def dock_status_callback(self, data):
+        '''
+        The callback for /dock_status.
+        Reads information about nearby docks, and the robot's current dock status.
+        '''
         pass
 
     def update_actions(self):
+        '''
+        The timer callback. Updates the internal state of this node and sends
+        updates to /actions when necessary
+        '''
         pass
 
 def main():

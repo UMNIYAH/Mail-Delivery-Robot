@@ -47,7 +47,7 @@ class AvoidanceLayer(Node):
 
     def update_collision(self, data):
         '''
-        The callback for /bumperSensor.
+        The callback for /bumper_data.
         Reads and updates the information sent by the bumper sensor.
 
         @param data: The data sent by the bumper sensor.
