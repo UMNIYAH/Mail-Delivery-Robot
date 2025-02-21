@@ -7,7 +7,8 @@ class TravelLayerStates(Enum):
     '''
     An enum for the internal states of the travel layer.
     '''
-    #todo: this
+    NO_DEST = 'NO_DEST'
+    HAS_DEST = 'HAS_DEST'
 
 class TravelLayer(Node):
     '''
@@ -26,6 +27,9 @@ class TravelLayer(Node):
         Defines the necessary publishers and subscribers.
         '''
         super().__init__('travel_layer')
+
+        self.state = TravelLayerStates.NO_DEST
+        self.current_destination = 'NONE'
 
         self.lidar_data_sub = self.create_subscription(String, 'lidar_data', self.lidar_data_callback, 10)
         self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)

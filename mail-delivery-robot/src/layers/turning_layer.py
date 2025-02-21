@@ -7,7 +7,12 @@ class TurningLayerStates(Enum):
     '''
     An enum for the internal states of the turning layer.
     '''
-    #todo: this
+    NO_DEST = 'NO_DEST'
+    HAS_DEST = 'HAS_DEST'
+    LEFT_TURN = 'LEFT_TURN'
+    RIGHT_TURN = 'RIGHT_TURN'
+    U_TURN = 'U_TURN'
+    PASS = 'PASS'
 
 class TurningLayer(Node):
     '''
@@ -28,6 +33,9 @@ class TurningLayer(Node):
         Defines the necessary publishers and subscribers.
         '''
         super().__init__('turning_layer')
+
+        self.state = TurningLayerStates.NO_DEST
+        self.current_destination = 'NONE'
 
         self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
         self.beacon_data_sub = self.create_subscription(String, 'beacon_data', self.beacon_data_callback, 10)
