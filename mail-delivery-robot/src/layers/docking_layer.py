@@ -3,7 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from enum import Enum
 from irobot_create_msgs.msg import DockStatus
-import subprocess
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 
 class DockingLayerStates(Enum):
     '''
@@ -11,8 +11,6 @@ class DockingLayerStates(Enum):
     '''
     NO_DEST = 'NO_DEST'
     HAS_DEST = 'HAS_DEST'
-    SHOULD_DOCK = 'SHOULD_DOCK'
-    SHOULD_UNDOCK = 'SHOULD_UNDOCK'
 
 class DockingLayer(Node):
     '''
@@ -35,10 +33,17 @@ class DockingLayer(Node):
 
         self.state = DockingLayerStates.NO_DEST
         self.current_destination = 'NONE'
+        self.current_beacon = 'NONE'
+        self.dock_visible = False
+        self.is_docked = False
+
 
         self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
         self.beacon_data_sub = self.create_subscription(String, 'beacon_data', self.beacon_data_callback, 10)
-        self.dock_status_sub = self.create_subscription(DockStatus, 'dock_status', self.dock_status_callback, 10)
+        self.dock_status_sub = self.create_subscription(DockStatus, 'dock_status', self.dock_status_callback, qos_profile=QoSProfile(
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            depth=10
+        ))
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
 
@@ -58,28 +63,39 @@ class DockingLayer(Node):
         The callback for /destinations.
         Reads the robot's current destination when one is published.
         '''
-        pass
+        self.current_destination = data.data.split(':')[1]
 
     def beacon_data_callback(self, data):
         '''
         The callback for /beacon_data.
         Reads information about nearby beacons.
         '''
-        pass
+        self.current_beacon = data.data.split(',')[0]
 
     def dock_status_callback(self, data):
         '''
         The callback for /dock_status.
         Reads information about nearby docks, and the robot's current dock status.
         '''
-        pass
+        self.dock_visible = data.dock_visible
+        self.is_docked = data.is_docked
 
     def update_actions(self):
         '''
         The timer callback. Updates the internal state of this node and sends
         updates to /actions when necessary
         '''
-        pass
+        if self.state == DockingLayerStates.NO_DEST and self.current_destination != 'NONE':
+            self.state = DockingLayerStates.HAS_DEST
+            if self.is_docked:
+                self.action_publisher.publish(self.undock_msg)
+        elif self.state == DockingLayerStates.HAS_DEST and self.current_beacon == self.current_destination:
+            if self.dock_visible:
+                self.state = DockingLayerStates.NO_DEST
+                self.current_destination = 'NONE'
+                self.current_beacon = 'NONE'
+                self.action_publisher.publish(self.dock_msg)
+        
 
 def main():
     rclpy.init()

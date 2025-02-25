@@ -3,6 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from src.control.action_translator import translate_action
+import subprocess
 
 class Captain(Node):
     '''
@@ -40,11 +41,16 @@ class Captain(Node):
 
     def send_command(self):
         for action in self.current_actions.values():
-            if action != 'NONE':
+            if action != 'NONE' and action != 'DOCK' and action != 'UNDOCK':
                 command = translate_action(action)
                 self.command_publisher.publish(command)
                 break
-        
+            elif action == 'DOCK':
+                subprocess.run(["ros2", "action", "send_goal", "/dock", "irobot_create_msgs/action/Dock", "{}"])
+                break
+            elif action == 'UNDOCK':
+                subprocess.run(["ros2", "action", "send_goal", "/undock", "irobot_create_msgs/action/Undock", "{}"])
+                break
 def main():
     rclpy.init()
     captain = Captain()

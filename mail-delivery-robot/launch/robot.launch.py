@@ -47,6 +47,16 @@ def generate_launch_description():
         ),
         Node(
             package='mail-delivery-robot',
+            executable='docking_layer',
+            name='docking_layer'
+        ),
+        Node(
+            package='mail-delivery-robot',
+            executable='turning_layer',
+            name='turning_layer'
+        ),
+        Node(
+            package='mail-delivery-robot',
             executable='travel_layer',
             name='travel_layer'
         )
