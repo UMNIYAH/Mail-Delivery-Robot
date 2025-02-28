@@ -95,6 +95,8 @@ class DockingLayer(Node):
                 self.current_destination = 'NONE'
                 self.current_beacon = 'NONE'
                 self.action_publisher.publish(self.dock_msg)
+        else:
+            self.action_publisher.publish(self.no_msg)
         
 
 def main():

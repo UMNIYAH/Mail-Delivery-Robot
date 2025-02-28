@@ -81,7 +81,7 @@ class BeaconSensor(Node):
 
                     break
 
-        self.get_logger().info(str(self.scan))
+        #self.get_logger().info(str(self.scan))
         if self.scan_counter >= self.config["BEACON_SCAN_COUNT"]:
             best_beacon = ""
             best_rssi = 100
@@ -103,7 +103,7 @@ class BeaconSensor(Node):
             
             if best_beacon != "":
                 beaconData.data = best_beacon + "," + str(best_rssi) 
-                self.get_logger().info(beaconData.data)
+                #self.get_logger().info(beaconData.data)
                 self.publisher_.publish(beaconData)
             
                 self.scan = dict()

@@ -39,6 +39,8 @@ class AvoidanceLayer(Node):
         self.wait_msg.data = '0:WAIT'
         self.no_msg = String()
         self.no_msg.data = '0:NONE'
+        self.back_msg = String()
+        self.back_msg.data = '0:BACK'
 
         self.timer = self.create_timer(0.2, self.update_actions)
         self.delay_counter = 25
