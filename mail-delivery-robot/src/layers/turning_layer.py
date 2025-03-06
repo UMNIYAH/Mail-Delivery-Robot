@@ -56,14 +56,14 @@ class TurningLayer(Node):
         The callback for /destinations.
         Reads the robot's current destination when one is published.
         '''
-        pass
+        self.current_destination = data.data.split(':')[1]
 
     def beacon_data_callback(self, data):
         '''
         The callback for /beacon_data.
         Reads information about nearby beacons.
         '''
-        pass
+        self.current_beacon = data.data.split(',')[0]
 
     def lidar_data_callback(self, data):
         '''

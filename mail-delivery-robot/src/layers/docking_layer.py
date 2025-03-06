@@ -91,10 +91,11 @@ class DockingLayer(Node):
                 self.action_publisher.publish(self.undock_msg)
         elif self.state == DockingLayerStates.HAS_DEST and self.current_beacon == self.current_destination:
             if self.dock_visible:
+                self.action_publisher.publish(self.dock_msg)
+            if self.is_docked:
                 self.state = DockingLayerStates.NO_DEST
                 self.current_destination = 'NONE'
                 self.current_beacon = 'NONE'
-                self.action_publisher.publish(self.dock_msg)
         else:
             self.action_publisher.publish(self.no_msg)
         

@@ -34,6 +34,7 @@ class TravelLayer(Node):
         self.state = TravelLayerStates.NO_DEST
         self.current_destination = 'NONE'
         self.is_docked = False
+        self.was_docked = False
 
         self.lidar_data_sub = self.create_subscription(String, 'lidar_data', self.lidar_data_callback, 10)
         self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
@@ -72,6 +73,7 @@ class TravelLayer(Node):
         The callback for /dock_status.
         Reads information about nearby docks, and the robot's current dock status.
         '''
+        self.was_docked = self.is_docked
         self.is_docked = data.is_docked
 
     def update_actions(self):
@@ -85,6 +87,8 @@ class TravelLayer(Node):
             self.state = TravelLayerStates.NO_DEST
         elif self.state == TravelLayerStates.HAS_DEST and not self.is_docked:
             self.action_publisher.publish(self.go_msg)
+        if self.is_docked and not self.was_docked:
+            self.action_publisher.publish(self.no_msg)
 
 def main():
     rclpy.init()

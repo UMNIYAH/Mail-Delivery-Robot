@@ -49,8 +49,10 @@ class AvoidanceLayer(Node):
         self.go_msg.data = '0:GO'
 
         self.timer = self.create_timer(0.2, self.update_actions)
+        self.bump_counter_reduce_timer = self.create_timer(15, self.bump_counter_reduce)
         self.delay_counter = 28
         self.bump_counter = 0
+        self.pause_bump_counter = False
 
         self.action_publisher.publish(self.no_msg)
 
@@ -67,6 +69,13 @@ class AvoidanceLayer(Node):
             self.bump_data = True
         else:
             self.bump_data = False
+    
+    def bump_counter_reduce(self):
+        '''
+        The timer callback to reduce the bump counter by 1.
+        '''
+        if self.bump_counter > 0 and not self.pause_bump_counter:
+            self.bump_counter -= 1
 
     def update_actions(self):
         '''
@@ -80,9 +89,10 @@ class AvoidanceLayer(Node):
             self.bump_counter += 1
         elif self.state == AvoidanceLayerStates.COLLISION and self.delay_counter:
             #Begin sending instructions to deal with the collision
-            if self.bump_counter < 5:
+            if self.bump_counter < 3:
                 self.action_publisher.publish(self.wait_msg)
             else:
+                self.pause_bump_counter = True
                 if self.delay_counter == 28:
                     self.action_publisher.publish(self.left_turn_msg)
                 elif self.delay_counter == 24:
@@ -98,6 +108,7 @@ class AvoidanceLayer(Node):
                 elif self.delay_counter == 4:
                     self.action_publisher.publish(self.left_turn_msg)
                     self.bump_counter = 0
+                    self.pause_bump_counter = False
             self.delay_counter -= 1
         elif self.state == AvoidanceLayerStates.COLLISION:
             #Collision has resolved, transition to state NO_COLLISION, and
