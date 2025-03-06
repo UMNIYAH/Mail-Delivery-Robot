@@ -83,7 +83,7 @@ class TravelLayer(Node):
             self.state = TravelLayerStates.HAS_DEST
         elif self.state == TravelLayerStates.HAS_DEST and self.current_destination == 'NONE':
             self.state = TravelLayerStates.NO_DEST
-        if self.state == TravelLayerStates.HAS_DEST and not self.is_docked:
+        elif self.state == TravelLayerStates.HAS_DEST and not self.is_docked:
             self.action_publisher.publish(self.go_msg)
 
 def main():

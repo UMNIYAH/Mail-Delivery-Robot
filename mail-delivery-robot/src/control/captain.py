@@ -53,11 +53,9 @@ class Captain(Node):
                 self.command_publisher.publish(command)
                 break
             elif action == 'DOCK':
-                #subprocess.run(["ros2", "action", "send_goal", "/dock", "irobot_create_msgs/action/Dock", "{}"])
                 self.docking_client.send_goal_async(self.dock_msg)
                 break
             elif action == 'UNDOCK':
-                #subprocess.run(["ros2", "action", "send_goal", "/undock", "irobot_create_msgs/action/Undock", "{}"])
                 self.undocking_client.send_goal_async(self.undock_msg)
                 break
         self.get_logger().info(str(self.current_actions))

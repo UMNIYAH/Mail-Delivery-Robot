@@ -41,9 +41,16 @@ class AvoidanceLayer(Node):
         self.no_msg.data = '0:NONE'
         self.back_msg = String()
         self.back_msg.data = '0:BACK'
+        self.left_turn_msg = String()
+        self.left_turn_msg.data = '0:LEFT_TURN'
+        self.right_turn_msg = String()
+        self.right_turn_msg.data = '0:RIGHT_TURN'
+        self.go_msg = String()
+        self.go_msg.data = '0:GO'
 
         self.timer = self.create_timer(0.2, self.update_actions)
-        self.delay_counter = 25
+        self.delay_counter = 28
+        self.bump_counter = 0
 
         self.action_publisher.publish(self.no_msg)
 
@@ -69,10 +76,28 @@ class AvoidanceLayer(Node):
         if self.state == AvoidanceLayerStates.NO_COLLISION and self.bump_data:
             #Bumper sensor was triggered, transition from state NO_COLLISION to state COLLISION
             self.state = AvoidanceLayerStates.COLLISION
-            self.delay_counter = 25
+            self.delay_counter = 28
+            self.bump_counter += 1
         elif self.state == AvoidanceLayerStates.COLLISION and self.delay_counter:
             #Begin sending instructions to deal with the collision
-            self.action_publisher.publish(self.wait_msg)
+            if self.bump_counter < 5:
+                self.action_publisher.publish(self.wait_msg)
+            else:
+                if self.delay_counter == 28:
+                    self.action_publisher.publish(self.left_turn_msg)
+                elif self.delay_counter == 24:
+                    self.action_publisher.publish(self.go_msg)
+                elif self.delay_counter == 20:
+                    self.action_publisher.publish(self.right_turn_msg)
+                elif self.delay_counter == 16:
+                    self.action_publisher.publish(self.go_msg)
+                elif self.delay_counter == 12:
+                    self.action_publisher.publish(self.right_turn_msg)
+                elif self.delay_counter == 8:
+                    self.action_publisher.publish(self.go_msg)
+                elif self.delay_counter == 4:
+                    self.action_publisher.publish(self.left_turn_msg)
+                    self.bump_counter = 0
             self.delay_counter -= 1
         elif self.state == AvoidanceLayerStates.COLLISION:
             #Collision has resolved, transition to state NO_COLLISION, and
@@ -80,7 +105,7 @@ class AvoidanceLayer(Node):
             #otherwise the captain would continue to execute the last instruction
             self.state = AvoidanceLayerStates.NO_COLLISION
             self.action_publisher.publish(self.no_msg)
-            self.delay_counter = 25
+            self.delay_counter = 28
 
 def main():
     rclpy.init()
