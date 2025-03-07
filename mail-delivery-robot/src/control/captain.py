@@ -39,6 +39,8 @@ class Captain(Node):
         self.undocking_client = ActionClient(self, Undock, 'undock')
         self.dock_msg = Dock.Goal()
         self.undock_msg = Undock.Goal()
+        self.dock_goal_future = None
+        self.can_send_goal = True
 
         self.timer = self.create_timer(0.2, self.send_command)
 
@@ -53,12 +55,32 @@ class Captain(Node):
                 self.command_publisher.publish(command)
                 break
             elif action == 'DOCK':
-                self.docking_client.send_goal_async(self.dock_msg)
-                break
+                if self.can_send_goal:
+                    self.can_send_goal = False
+                    self.dock_goal_future = self.docking_client.send_goal_async(self.dock_msg, feedback_callback = self.feedback_callback)
+                    self.dock_goal_future.add_done_callback(self.dock_goal_callback)
+                    break
             elif action == 'UNDOCK':
                 self.undocking_client.send_goal_async(self.undock_msg)
                 break
         self.get_logger().info(str(self.current_actions))
+
+    def dock_goal_callback(self, future):
+        self.get_logger().info("got here")
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            return
+
+        self._get_result_future = goal_handle.get_result_async()
+        self._get_result_future.add_done_callback(self.get_result_callback)
+
+    def get_result_callback(self, future):
+        result = future.result().result
+        self.get_logger().info(str(result))
+
+    def feedback_callback(self, feedback_msg):
+        feedback = feedback_msg.feedback
+        self.get_logger().info(str(feedback))
 
 def main():
     rclpy.init()
