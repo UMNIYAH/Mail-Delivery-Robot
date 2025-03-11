@@ -22,7 +22,8 @@ setup(
                 'src.control.action_translator',
                 'src.tools.csv_parser',
                 'src.tools.map',
-                'src.tools.nav_parser'
+                'src.tools.nav_parser',
+                'src.tests.travel_analyzer'
     ],
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
@@ -49,7 +50,8 @@ setup(
             'turning_layer = src.layers.turning_layer:main',
             'client = src.communication.client:main',
             'music_player = src.communication.music_player:main',
-            'captain = src.control.captain:main'
+            'captain = src.control.captain:main',
+            'travel_analyzer = src.tests.travel_analyzer:main'
         ],
     },
 )
