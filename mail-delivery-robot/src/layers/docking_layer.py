@@ -17,8 +17,7 @@ class DockingLayer(Node):
     The subsumption layer responsible for moving the robot on to and off of the dock.
 
     @Subscribers:
-    - Listens to /destinations for data about the robot's current destination
-    - Listens to /beacon_data for data about nearby beacons
+    - Listens to /navigation for data about the next actions the robot should take
     - Listens to /dock_status for data about nearby docking stations and the robot's dock status
 
     @Publishers:
@@ -32,14 +31,12 @@ class DockingLayer(Node):
         super().__init__('docking_layer')
 
         self.state = DockingLayerStates.NO_DEST
-        self.current_destination = 'NONE'
-        self.current_beacon = 'NONE'
+        self.last_navigation_message = 'NONE'
         self.dock_visible = False
         self.is_docked = False
 
 
-        self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
-        self.beacon_data_sub = self.create_subscription(String, 'beacon_data', self.beacon_data_callback, 10)
+        self.navigation_sub = self.create_subscription(String, 'navigation', self.navigation_callback, 10)
         self.dock_status_sub = self.create_subscription(DockStatus, 'dock_status', self.dock_status_callback, qos_profile=QoSProfile(
             reliability=QoSReliabilityPolicy.BEST_EFFORT,
             depth=10
@@ -58,19 +55,12 @@ class DockingLayer(Node):
 
         self.action_publisher.publish(self.no_msg)
 
-    def destinations_callback(self, data):
+    def navigation_callback(self, data):
         '''
-        The callback for /destinations.
-        Reads the robot's current destination when one is published.
+        The callback for /navigation
+        Reads navigation messages sent by the navigation unit.
         '''
-        self.current_destination = data.data.split(':')[1]
-
-    def beacon_data_callback(self, data):
-        '''
-        The callback for /beacon_data.
-        Reads information about nearby beacons.
-        '''
-        self.current_beacon = data.data.split(',')[0]
+        self.last_navigation_message = data.data
 
     def dock_status_callback(self, data):
         '''
@@ -85,17 +75,17 @@ class DockingLayer(Node):
         The timer callback. Updates the internal state of this node and sends
         updates to /actions when necessary
         '''
-        if self.state == DockingLayerStates.NO_DEST and self.current_destination != 'NONE':
+        if self.state == DockingLayerStates.NO_DEST and self.last_navigation_message != 'NONE':
             self.state = DockingLayerStates.HAS_DEST
             if self.is_docked:
                 self.action_publisher.publish(self.undock_msg)
-        elif self.state == DockingLayerStates.HAS_DEST and self.current_beacon == self.current_destination:
+        elif self.state == DockingLayerStates.HAS_DEST and self.last_navigation_message == 'DOCK':
             if self.dock_visible:
                 self.action_publisher.publish(self.dock_msg)
-            if self.is_docked:
+            elif self.is_docked:
                 self.state = DockingLayerStates.NO_DEST
-                self.current_destination = 'NONE'
-                self.current_beacon = 'NONE'
+            else:
+                self.action_publisher.publish(self.no_msg)
         else:
             self.action_publisher.publish(self.no_msg)
         

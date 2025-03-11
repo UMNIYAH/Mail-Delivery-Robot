@@ -19,10 +19,8 @@ class TurningLayer(Node):
     The subsumption layer responsible for moving the robot through intersections.
 
     @Subscribers:
-    - Listens to /destinations for data about the robot's current destination
-    - Listens to /beacon_data for data about nearby beacons
-    - Listens to /lidar_data for data about nearby walls
-    - Listens to /camera_data for data about intersection markers the robot passes over
+    - Listens to /navigation for the next action the robot should take at an intersection
+    - Listens to /intersection_detection for data about whether or not the robot is in an intersection
 
     @Publishers:
     - Publishes actions to /actions
@@ -35,12 +33,9 @@ class TurningLayer(Node):
         super().__init__('turning_layer')
 
         self.state = TurningLayerStates.NO_DEST
-        self.current_destination = 'NONE'
 
-        self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
-        self.beacon_data_sub = self.create_subscription(String, 'beacon_data', self.beacon_data_callback, 10)
-        self.lidar_data_sub = self.create_subscription(String, 'lidar_data', self.lidar_data_callback, 10)
-        self.camera_data_sub = self.create_subscription(String, 'camera_data', self.camera_data_callback, 10)
+        self.navigation_sub = self.create_subscription(String, 'navigation', self.navigation_callback, 10)
+        self.intersection_detection_sub = self.create_subscription(String, 'intersection_detection', self.intersection_detection_callback, 10)
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
 
@@ -51,31 +46,17 @@ class TurningLayer(Node):
 
         self.action_publisher.publish(self.no_msg)
 
-    def destinations_callback(self, data):
+    def navigation_callback(self, data):
         '''
-        The callback for /destinations.
-        Reads the robot's current destination when one is published.
-        '''
-        self.current_destination = data.data.split(':')[1]
-
-    def beacon_data_callback(self, data):
-        '''
-        The callback for /beacon_data.
-        Reads information about nearby beacons.
-        '''
-        self.current_beacon = data.data.split(',')[0]
-
-    def lidar_data_callback(self, data):
-        '''
-        The callback for /lidar_data.
-        Reads information about nearby walls.
+        The callback for /navigation.
+        Reads information about navigation actions the robot should take.
         '''
         pass
 
-    def camera_data_callback(self, data):
+    def intersection_detection_callback(self, data):
         '''
-        The callback for /camera_data.
-        Reads information about intersection markers the robot passes over.
+        The callback for /intersection_detection.
+        Reads information about whether the robot is currently in an intersection.
         '''
         pass
 

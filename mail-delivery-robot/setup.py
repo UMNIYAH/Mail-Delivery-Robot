@@ -12,6 +12,8 @@ setup(
                 'src.sensors.beacon_sensor',
                 'src.sensors.bumper_sensor',
                 'src.sensors.lidar_sensor',
+                'src.sensors.navigation_unit',
+                'src.sensors.intersection_detection_unit',
                 'src.layers.avoidance_layer',
                 'src.layers.docking_layer',
                 'src.layers.travel_layer',
@@ -51,7 +53,9 @@ setup(
             'client = src.communication.client:main',
             'music_player = src.communication.music_player:main',
             'captain = src.control.captain:main',
-            'travel_analyzer = src.tests.travel_analyzer:main'
+            'travel_analyzer = src.tests.travel_analyzer:main',
+            'navigation_unit = src.sensors.navigation_unit:main',
+            'intersection_detection_unit = src.sensors.intersection_detection_unit:main'
         ],
     },
 )

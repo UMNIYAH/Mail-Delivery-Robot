@@ -42,6 +42,16 @@ def generate_launch_description():
         ),
         Node(
             package='mail-delivery-robot',
+            executable='navigation_unit',
+            name='navigation_unit'
+        ),
+        Node(
+            package='mail-delivery-robot',
+            executable='intersection_detection_unit',
+            name='intersection_detection_unit'
+        ),
+        Node(
+            package='mail-delivery-robot',
             executable='avoidance_layer',
             name='avoidance_layer'
         ),

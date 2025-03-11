@@ -60,11 +60,9 @@ def generate_launch_description():
             executable='travel_layer',
             name='travel_layer'
         ),
-
         Node(
             package='mail-delivery-robot',
             executable='travel_analyzer',
             name='travel_analyzer'
         )
-     
    ])
