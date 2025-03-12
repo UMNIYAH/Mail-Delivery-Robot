@@ -31,7 +31,7 @@ class AvoidanceLayer(Node):
         self.state = AvoidanceLayerStates.NO_COLLISION
         self.bump_data = False
 
-        self.bumper_data_sub = self.create_subscription(String, 'bumper_data', self.update_collision, 10)
+        self.bumper_data_sub = self.create_subscription(String, 'bumper_data', self.bumper_data_callback, 10)
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
         
@@ -56,7 +56,7 @@ class AvoidanceLayer(Node):
 
         self.action_publisher.publish(self.no_msg)
 
-    def update_collision(self, data):
+    def bumper_data_callback(self, data):
         '''
         The callback for /bumper_data.
         Reads and updates the information sent by the bumper sensor.

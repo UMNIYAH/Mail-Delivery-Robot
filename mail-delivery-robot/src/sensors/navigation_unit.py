@@ -40,6 +40,8 @@ class NavigationUnit(Node):
         self.dock_msg.data = 'DOCK'
         self.undock_msg = String()
         self.undock_msg.data = 'UNDOCK'
+        self.no_msg = String()
+        self.no_msg.data = 'NONE'
     
     def destinations_callback(self, data):
         '''

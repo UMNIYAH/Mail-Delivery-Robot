@@ -16,7 +16,7 @@ class CameraSensor(Node):
     def __init__(self):
         super().__init__('camera_sensor')
 
-        self.camera_publisher = self.create_publisher(Bool, 'camera_data', 10)
+        self.camera_data_publisher = self.create_publisher(Bool, 'camera_data', 10)
 
         self.timer = self.create_timer(0.2, self.get_yellow)
 
@@ -40,9 +40,9 @@ class CameraSensor(Node):
         yellow_pixels = numpy.sum(yellow_mask > 0)
         yellow_percentage = yellow_pixels / self.total_pixels
         if yellow_percentage > 0.1:
-            self.camera_publisher.publish(self.true_msg)
+            self.camera_data_publisher.publish(self.true_msg)
         else:
-            self.camera_publisher.publish(self.false_msg)
+            self.camera_data_publisher.publish(self.false_msg)
 
 def main():
     rclpy.init()

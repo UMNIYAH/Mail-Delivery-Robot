@@ -41,27 +41,12 @@ class TravelLayer(Node):
         self.was_docked = False
 
         # Subscribe to lidar data (from the lidar sensor node).
-        self.lidar_data_sub = self.create_subscription(
-            String, 
-            'lidar_data', 
-            self.lidar_data_callback, 
-            10
-        )
-        self.destinations_sub = self.create_subscription(
-            String, 
-            'destinations', 
-            self.destinations_callback, 
-            10
-        )
-        self.dock_status_sub = self.create_subscription(
-            DockStatus, 
-            'dock_status', 
-            self.dock_status_callback, 
-            qos_profile=QoSProfile(
-                reliability=QoSReliabilityPolicy.BEST_EFFORT,
-                depth=10
-            )
-        )
+        self.lidar_data_sub = self.create_subscription(String, 'lidar_data', self.lidar_data_callback, 10)
+        self.destinations_sub = self.create_subscription(String, 'destinations', self.destinations_callback, 10)
+        self.dock_status_sub = self.create_subscription(DockStatus, 'dock_status', self.dock_status_callback, qos_profile=QoSProfile(
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            depth=10
+        ))
 
         # Publisher for sending action messages.
         self.action_publisher = self.create_publisher(String, 'actions', 10)
