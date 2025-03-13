@@ -8,7 +8,9 @@ class MusicPlayer(Node):
         super().__init__('music_player')
 
         self.music_publisher = self.create_publisher(AudioNoteVector, '/cmd_audio', 1)
-        self.timer = self.create_timer(22, self.play_music)
+        self.music_player = self.create_timer(1, self.play_music)
+        self.delay_counter = 0
+        self.song_length = 28
 
         freq_a_very_low = 110
         freq_b_very_low = 123
@@ -94,6 +96,22 @@ class MusicPlayer(Node):
 
         self.song = AudioNoteVector(append = False,
             notes = [
+                note_c_low_quarter,
+                note_a_low_quarter,
+                note_c_low_quarter,
+                note_b_low_quarter,
+                note_a_low_quarter,
+                note_g_very_low_half,
+
+                rest_quarter,
+                note_a_low_quarter,
+                note_d_very_low_quarter,
+                note_a_low_quarter,
+                note_f_very_low_quarter,
+                note_g_very_low_quarter,
+                note_c_low_half,
+                rest_quarter,
+
                 note_e_quarter,
                 rest_quarter,
                 note_e_quarter,
@@ -146,6 +164,15 @@ class MusicPlayer(Node):
                 note_b_high_quarter,
                 note_a_high_quarter,
                 note_g_half,
+
+                rest_quarter,
+                note_c_low_quarter,
+                note_a_low_quarter,
+                note_c_low_quarter,
+                note_b_low_quarter,
+                note_a_low_quarter,
+                note_g_very_low_half,
+
                 rest_quarter,
                 note_a_low_quarter,
                 note_d_very_low_quarter,
@@ -153,30 +180,17 @@ class MusicPlayer(Node):
                 note_f_very_low_quarter,
                 note_g_very_low_quarter,
                 note_c_low_half,
-                rest_quarter,
-                note_d_very_low_quarter,
-                note_a_low_quarter,
-                note_f_very_low_quarter,
-                note_g_very_low_quarter,
-                note_c_low_half,
-                rest_quarter,
-                note_d_very_low_quarter,
-                note_a_low_quarter,
-                note_f_very_low_quarter,
-                note_g_very_low_quarter,
-                note_c_low_half,
-                rest_quarter,
-                note_d_very_low_quarter,
-                note_a_low_quarter,
-                note_f_very_low_quarter,
-                note_g_very_low_quarter,
-                note_c_low_half,
+
                 rest_quarter
+                
             ]
         )
     
     def play_music(self):
-        self.music_publisher.publish(self.song)
+        if self.delay_counter <= 0:
+            self.delay_counter = self.song_length
+            self.music_publisher.publish(self.song)
+        self.delay_counter -= 1
 
 def main():
     rclpy.init()
