@@ -1,12 +1,16 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+from tools.csv_parser import loadBeacons
+from tools.nav_parser import loadConnections
+from tools.map import Map
 
 class NavigationUnit(Node):
     '''
     The Node in charge of navigation.
 
     @Subscribers:
+    - Subscribes to /destinations for data about the robot's current destination.
     - Subscribes to /beacon_data for information about where the robot is.
 
     @Publishers:
@@ -25,8 +29,12 @@ class NavigationUnit(Node):
         self.navigation_publisher = self.create_publisher(String, 'navigation', 10)
         self.navigation_timer = self.create_timer(1, self.update_navigation)
 
+        self.beacon_connections = loadConnections()
+        self.map = Map()
+
         self.current_destination = None
         self.current_beacon = None
+        self.prev_beacon = None
 
         self.left_msg = String()
         self.left_msg.data = 'LEFT_TURN'
