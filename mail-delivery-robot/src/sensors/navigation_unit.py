@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from tools.csv_parser import loadBeacons
 from tools.nav_parser import loadConnections
 from tools.map import Map
 
@@ -35,6 +34,8 @@ class NavigationUnit(Node):
         self.current_destination = None
         self.current_beacon = None
         self.prev_beacon = None
+        self.direction = None
+        self.can_send_direction = False
 
         self.left_msg = String()
         self.left_msg.data = 'LEFT_TURN'
@@ -46,8 +47,6 @@ class NavigationUnit(Node):
         self.uturn_msg.data = 'U_TURN'
         self.dock_msg = String()
         self.dock_msg.data = 'DOCK'
-        self.undock_msg = String()
-        self.undock_msg.data = 'UNDOCK'
         self.no_msg = String()
         self.no_msg.data = 'NONE'
     
@@ -56,6 +55,7 @@ class NavigationUnit(Node):
         The callback for /destinations.
         Reads the robot's current destination when one is published.
         '''
+        self.prev_beacon = data.data.split(':')[0]
         self.current_destination = data.data.split(':')[1]
     
     def beacon_data_callback(self, data):
@@ -63,14 +63,55 @@ class NavigationUnit(Node):
         The callback for /beacon_data.
         Reads information about nearby beacons.
         '''
+        # No trip was defined
+        if self.destination is None or self.prev_beacon is None:
+            return
+
+        beacon_orientation = "0"
+
         self.current_beacon = data.data.split(',')[0]
+
+        if self.current_beacon == self.prev_beacon:
+            return
+        else:
+            beacon_orientation = self.beacon_connections[self.current_beacon][self.prev_beacon]
+            if beacon_orientation == "-":
+                self.get_logger().info("ERROR: ROBOT HAS BEEN MOVED")
+                # Finds a valid orientation for the robot.
+                for i in range(1, 5):
+                    if self.map.exists(self.current_beacon + str(i)):
+                        beacon_orientation = str(i)
+                        break
+            self.direction = self.map.getDirection(self.current_beacon + beacon_orientation, self.destination)
+            self.can_send_direction = True
+        self.prev_beacon = self.current_beacon
 
     def update_navigation(self):
         '''
-        The timer callback. Updates the internal state of this node and sends
-        updates to /navigation when necessary
+        The timer callback. Sends updates to /navigation when necessary.
         '''
-        pass
+        #wait for things to be initialized
+        if self.direction is not None and self.can_send_direction:
+            #don't send the message more than once
+            self.can_send_direction = False
+            #translate from old to new naming convention
+            match self.direction:
+                case 'NAV_LEFT':
+                    self.navigation_publisher.publish(self.left_msg)
+                case 'NAV_RIGHT':
+                    self.navigation_publisher.publish(self.right_msg)
+                case 'NAV_PASS':
+                    self.navigation_publisher.publish(self.straight_msg)
+                case 'NAV_U-TURN':
+                    self.navigation_publisher.publish(self.uturn_msg)
+                case 'NAV_DOCK':
+                    self.navigation_publisher.publish(self.dock_msg)
+                case _:
+                    #error
+                    self.navigation_publisher.publish(self.no_msg)
+                    
+
+            
 
 def main():
     rclpy.init()
