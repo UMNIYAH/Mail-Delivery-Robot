@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from tools.nav_parser import loadConnections
-from tools.map import Map
+from src.tools.map import Map
 
 class NavigationUnit(Node):
     '''
@@ -64,7 +64,7 @@ class NavigationUnit(Node):
         Reads information about nearby beacons.
         '''
         # No trip was defined
-        if self.destination is None or self.prev_beacon is None:
+        if self.current_destination is None or self.prev_beacon is None:
             return
 
         beacon_orientation = "0"
@@ -82,7 +82,7 @@ class NavigationUnit(Node):
                     if self.map.exists(self.current_beacon + str(i)):
                         beacon_orientation = str(i)
                         break
-            self.direction = self.map.getDirection(self.current_beacon + beacon_orientation, self.destination)
+            self.direction = self.map.getDirection(self.current_beacon + beacon_orientation, self.current_destination)
             self.can_send_direction = True
         self.prev_beacon = self.current_beacon
 
