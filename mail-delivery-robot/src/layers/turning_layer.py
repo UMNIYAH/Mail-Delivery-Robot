@@ -79,10 +79,11 @@ class TurningLayer(Node):
         if not self.in_intersection:
            return  
 
-        if self.last_nav_msg is not None and self.last_nav_msg in self.actions and not self.nav_message_handled:
+        if self.last_nav_msg is not None and not self.nav_message_handled:
             if self.turn_cycles > 0:
-                self.action_publisher.publish(self.actions[self.last_nav_msg])
-                self.turn_cycles -= 1
+                if self.last_nav_msg in self.actions:
+                    self.action_publisher.publish(self.actions[self.last_nav_msg])
+                    self.turn_cycles -= 1
             else:
                 if self.go_cycles > 0:
                     self.action_publisher.publish(self.go_msg)
