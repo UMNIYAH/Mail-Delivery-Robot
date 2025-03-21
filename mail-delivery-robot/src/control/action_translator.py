@@ -27,9 +27,11 @@ def translate_action(action):
         case 'BACK':
             msg.linear.x = -1.0
         case 'LEFT_TURN':
-            msg.angular.z = 1.0
+            msg.angular.z = 2.0
         case 'RIGHT_TURN':
-            msg.angular.z = -1.0
+            msg.angular.z = -2.0
+        case 'U_TURN':
+            msg.angular.z = 2.0
         case _:
             try:
                 parts = action.split(",")

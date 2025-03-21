@@ -88,8 +88,11 @@ class IntersectionDetectionUnit(Node):
         if self.odom_x_snapshot is not None and self.odom_y_snapshot is not None:
             starting_location = [self.odom_x_snapshot, self.odom_y_snapshot]
             current_location = [self.odom_x, self.odom_y]
-            self.get_logger().info(str(math.dist(starting_location, current_location)))
+            #self.get_logger().info(str(math.dist(starting_location, current_location)))
             #TODO: if the distance is larger than some value, set self.camera_indicates_intersection to false
+            if math.dist(starting_location, current_location) > 4:
+                self.camera_indicates_intersection = False
+
 
         if self.lidar_indicates_intersection and self.camera_indicates_intersection:
             self.intersection_detection_publisher.publish(self.true_msg)
