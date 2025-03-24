@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
-from src.control.action_translator import translate_action
+from src.control.action_translator import ActionTranslator
 from rclpy.action import ActionClient
 from irobot_create_msgs.action import Dock, Undock
 import subprocess
@@ -31,6 +31,7 @@ class Captain(Node):
             '2' : 'NONE',
             '3' : 'NONE'
         }
+        self.action_translator = ActionTranslator()
 
         self.actions_sub = self.create_subscription(String, 'actions', self.parse_action, 10)
         self.command_publisher = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -51,7 +52,7 @@ class Captain(Node):
     def send_command(self):
         for action in self.current_actions.values():
             if action != 'NONE' and action != 'DOCK' and action != 'UNDOCK':
-                command = translate_action(action)
+                command = self.action_translator.translate_action(action)
                 self.command_publisher.publish(command)
                 break
             elif action == 'DOCK':

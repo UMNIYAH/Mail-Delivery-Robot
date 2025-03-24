@@ -5,6 +5,7 @@ from std_msgs.msg import Bool
 from nav_msgs.msg import Odometry
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 import math
+from tools.csv_parser import loadConfig
 
 class IntersectionDetectionUnit(Node):
     '''
@@ -23,6 +24,8 @@ class IntersectionDetectionUnit(Node):
         Defines the necessary publishers and subscribers.
         '''
         super().__init__('intersection_detection_unit')
+
+        self.config = loadConfig()
 
         self.lidar_data_sub = self.create_subscription(String, 'lidar_data', self.lidar_data_callback, 10)
         self.camera_data_sub = self.create_subscription(Bool, 'camera_data', self.camera_data_callback, 10)
@@ -90,7 +93,7 @@ class IntersectionDetectionUnit(Node):
             current_location = [self.odom_x, self.odom_y]
             #self.get_logger().info(str(math.dist(starting_location, current_location)))
             #TODO: if the distance is larger than some value, set self.camera_indicates_intersection to false
-            if math.dist(starting_location, current_location) > 4:
+            if math.dist(starting_location, current_location) > self.config["INTERSECTION_MAX_DISTANCE_FROM_MARKER"]:
                 self.camera_indicates_intersection = False
 
 

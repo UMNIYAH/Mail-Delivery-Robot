@@ -3,6 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from src.sensors.bumper_sensor import Bump_Event
 from enum import Enum
+from tools.csv_parser import loadConfig
 
 class AvoidanceLayerStates(Enum):
     '''
@@ -31,6 +32,8 @@ class AvoidanceLayer(Node):
         self.state = AvoidanceLayerStates.NO_COLLISION
         self.bump_data = False
 
+        self.config = loadConfig()
+
         self.bumper_data_sub = self.create_subscription(String, 'bumper_data', self.bumper_data_callback, 10)
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
@@ -49,8 +52,8 @@ class AvoidanceLayer(Node):
         self.go_msg.data = '0:GO'
 
         self.timer = self.create_timer(0.2, self.update_actions)
-        self.bump_counter_reduce_timer = self.create_timer(15, self.bump_counter_reduce)
-        self.delay_counter = 28
+        self.bump_counter_reduce_timer = self.create_timer(self.config["BUMP_COUNTER_REDUCE_TIMER"], self.bump_counter_reduce)
+        self.delay_counter = self.config["AVOIDANCE_DELAY"]
         self.bump_counter = 0
         self.pause_bump_counter = False
 
@@ -85,27 +88,27 @@ class AvoidanceLayer(Node):
         if self.state == AvoidanceLayerStates.NO_COLLISION and self.bump_data:
             #Bumper sensor was triggered, transition from state NO_COLLISION to state COLLISION
             self.state = AvoidanceLayerStates.COLLISION
-            self.delay_counter = 28
+            self.delay_counter = self.config["AVOIDANCE_DELAY"]
             self.bump_counter += 1
         elif self.state == AvoidanceLayerStates.COLLISION and self.delay_counter:
             #Begin sending instructions to deal with the collision
-            if self.bump_counter < 3:
+            if self.bump_counter < self.config["MAX_BUMPS_BEFORE_AVOID"]:
                 self.action_publisher.publish(self.wait_msg)
             else:
                 self.pause_bump_counter = True
-                if self.delay_counter == 28:
+                if self.delay_counter == self.config["AVOIDANCE_DELAY"]:
                     self.action_publisher.publish(self.left_turn_msg)
-                elif self.delay_counter == 24:
+                elif self.delay_counter == (self.config["AVOIDANCE_DELAY"] - self.config["AVOIDANCE_STEP"]):
                     self.action_publisher.publish(self.go_msg)
-                elif self.delay_counter == 20:
+                elif self.delay_counter == (self.config["AVOIDANCE_DELAY"] - (self.config["AVOIDANCE_STEP"] * 2)):
                     self.action_publisher.publish(self.right_turn_msg)
-                elif self.delay_counter == 16:
+                elif self.delay_counter == (self.config["AVOIDANCE_DELAY"] - (self.config["AVOIDANCE_STEP"] * 3)):
                     self.action_publisher.publish(self.go_msg)
-                elif self.delay_counter == 12:
+                elif self.delay_counter == (self.config["AVOIDANCE_DELAY"] - (self.config["AVOIDANCE_STEP"] * 4)):
                     self.action_publisher.publish(self.right_turn_msg)
-                elif self.delay_counter == 8:
+                elif self.delay_counter == (self.config["AVOIDANCE_DELAY"] - (self.config["AVOIDANCE_STEP"] * 5)):
                     self.action_publisher.publish(self.go_msg)
-                elif self.delay_counter == 4:
+                elif self.delay_counter == (self.config["AVOIDANCE_DELAY"] - (self.config["AVOIDANCE_STEP"] * 6)):
                     self.action_publisher.publish(self.left_turn_msg)
                     self.bump_counter = 0
                     self.pause_bump_counter = False
@@ -116,7 +119,7 @@ class AvoidanceLayer(Node):
             #otherwise the captain would continue to execute the last instruction
             self.state = AvoidanceLayerStates.NO_COLLISION
             self.action_publisher.publish(self.no_msg)
-            self.delay_counter = 28
+            self.delay_counter = self.config["AVOIDANCE_DELAY"]
 
 def main():
     rclpy.init()

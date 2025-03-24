@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from enum import Enum
+from tools.csv_parser import loadConfig
 
 class TurningLayer(Node):
     '''
@@ -21,6 +22,8 @@ class TurningLayer(Node):
         '''
         super().__init__('turning_layer')
 
+        self.config = loadConfig()
+
         self.last_nav_msg = None
         self.in_intersection = False
         self.nav_message_handled = False
@@ -38,9 +41,9 @@ class TurningLayer(Node):
         self.intersection_detection_sub = self.create_subscription(String, 'intersection_detection', self.intersection_detection_callback, 10)
         
         self.action_publisher = self.create_publisher(String, 'actions', 10)
-        self.turn_cycles = 3
-        self.u_turn_cycles = 7
-        self.go_cycles = 40
+        self.turn_cycles = self.config["TURN_CYCLES"]
+        self.u_turn_cycles = self.config["U_TURN_CYCLES"]
+        self.go_cycles = self.config["TURNING_GO_CYCLES"]
 
         self.timer = self.create_timer(0.2, self.update_actions)
 
@@ -73,10 +76,11 @@ class TurningLayer(Node):
             else:
                 self.action_publisher.publish(self.no_msg)
                 self.nav_message_handled = True
-                self.u_turn_cycles = 7
+                self.u_turn_cycles = self.config["U_TURN_CYCLES"]
                 return  
 
         if not self.in_intersection:
+           self.action_publisher.publish(self.no_msg)
            return  
 
         if self.last_nav_msg is not None and not self.nav_message_handled:
@@ -91,8 +95,8 @@ class TurningLayer(Node):
                 else:
                     self.action_publisher.publish(self.no_msg)
                     self.nav_message_handled = True  
-                    self.turn_cycles = 3
-                    self.go_cycles = 40
+                    self.turn_cycles = self.config["TURN_CYCLES"]
+                    self.go_cycles = self.config["TURNING_GO_CYCLES"]
 
 def main():
     rclpy.init()
