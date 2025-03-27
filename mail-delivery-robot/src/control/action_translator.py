@@ -23,7 +23,8 @@ class ActionTranslator():
         Returns:
         A Twist message with the movement order.
         '''
-        
+        self.msg.linear.x = 0.0
+        self.msg.angular.z = 0.0
         match action:
             case 'GO':
                 self.msg.linear.x = self.config["GO_MSG_LIN_SPEED"]
