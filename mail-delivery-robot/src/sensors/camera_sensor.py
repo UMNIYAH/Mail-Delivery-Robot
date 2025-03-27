@@ -31,9 +31,9 @@ class CameraSensor(Node):
         self.lower_yellow = numpy.array([self.config["CAMERA_MIN_HUE"], self.config["CAMERA_MIN_SATURATION"], self.config["CAMERA_MIN_VALUE"]])
         self.upper_yellow = numpy.array([self.config["CAMERA_MAX_HUE"], self.config["CAMERA_MAX_SATURATION"], self.config["CAMERA_MAX_VALUE"]])
 
-        self.image_width = self.config["CAMERA_IMG_WIDTH"]
-        self.image_height = self.config["CAMERA_IMG_HEIGHT"]
-        self.total_pixels = int(self.image_width) * int(self.image_height)
+        self.image_width = int(self.config["CAMERA_IMG_WIDTH"])
+        self.image_height = int(self.config["CAMERA_IMG_HEIGHT"])
+        self.total_pixels = self.image_width * self.image_height
 
     def get_yellow(self):
         subprocess.run(["libcamera-still", "--output", "image.jpg", "--immediate", "--width", str(self.image_width), "--height", str(self.image_height), "-n", "--verbose", "0"])
