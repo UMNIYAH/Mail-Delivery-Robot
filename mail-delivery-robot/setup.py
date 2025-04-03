@@ -14,6 +14,7 @@ setup(
                 'src.sensors.lidar_sensor',
                 'src.sensors.navigation_unit',
                 'src.sensors.intersection_detection_unit',
+                'src.sensors.battery_monitor',
                 'src.layers.avoidance_layer',
                 'src.layers.docking_layer',
                 'src.layers.travel_layer',
@@ -55,7 +56,8 @@ setup(
             'captain = src.control.captain:main',
             'travel_analyzer = src.tests.travel_analyzer:main',
             'navigation_unit = src.sensors.navigation_unit:main',
-            'intersection_detection_unit = src.sensors.intersection_detection_unit:main'
+            'intersection_detection_unit = src.sensors.intersection_detection_unit:main',
+            'battery_monitor = src.sensors.battery_monitor:main'
         ],
     },
 )

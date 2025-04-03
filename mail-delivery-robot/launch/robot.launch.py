@@ -52,6 +52,11 @@ def generate_launch_description():
         ),
         Node(
             package='mail-delivery-robot',
+            executable='battery_monitor',
+            name='battery_monitor'
+        ),
+        Node(
+            package='mail-delivery-robot',
             executable='avoidance_layer',
             name='avoidance_layer'
         ),
