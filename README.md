@@ -12,6 +12,12 @@ The objective of this project is to create a fully autonomous robot which is cap
 - [Douglas Lytle](https://github.com/douglytle)
 - [Cholen Premjeyanth](https://github.com/cholenpremjeyanth)
 
+## Demonstration:
+
+Demonstration videos of the project in action can be found here:
+- [Robot Demo](link to robot demo)
+- [Gazebo Simulation Demo](link to sim demo)
+
 ## Documentation
 
 For a detailed document which describes the design and implementation of the project, please see the [Final Report](/documents/Carleton Mail Delivery Robot Report.pdf).
