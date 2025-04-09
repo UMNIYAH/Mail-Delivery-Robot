@@ -28,6 +28,10 @@ For a detailed document which describes the design and implementation of the pro
 
 Please see appendices B and C of the [Final Report](/documents/Carleton Mail Delivery Robot Report.pdf) for instructions on how to set up and run the project.
 
+## Simulation Repository
+
+A repository containing everything necessary to simulate the robot using Gazebo can be found [here](https://github.com/deniscengu/carleton-mail-delivery-robot-gazebo)
+
 ## Previous Iterations of the Project
 
 This is a continuation project which builds on the work of past teams. You can find the previous iterations of this project here:
