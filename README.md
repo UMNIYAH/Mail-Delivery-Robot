@@ -22,11 +22,11 @@ Demonstration videos of the project in action can be found here:
 
 ## Documentation
 
-For a detailed document which describes the design and implementation of the project, please see the [Final Report](/documents/Carleton Mail Delivery Robot Report.pdf).
+For a detailed document which describes the design and implementation of the project, please see the [Final Report](https://github.com/deniscengu/carleton-mail-delivery-robot/blob/main/documents/Carleton%20Mail%20Delivery%20Robot%20Report.pdf).
 
 ## Setting up and Running the Project
 
-Please see appendices B and C of the [Final Report](/documents/Carleton Mail Delivery Robot Report.pdf) for instructions on how to set up and run the project.
+Please see appendices B and C of the [Final Report](https://github.com/deniscengu/carleton-mail-delivery-robot/blob/main/documents/Carleton%20Mail%20Delivery%20Robot%20Report.pdf) for instructions on how to set up and run the project.
 
 ## Simulation Repository
 
