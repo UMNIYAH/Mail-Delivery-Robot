@@ -15,8 +15,10 @@ The objective of this project is to create a fully autonomous robot which is cap
 ## Demonstration:
 
 Demonstration videos of the project in action can be found here:
-- [Robot Demo](link to robot demo)
-- [Gazebo Simulation Demo](link to sim demo)
+- [Robot Completing a Trip in the Tunnels](https://www.youtube.com/watch?v=HrFrQdZ8Tf8)
+- [Robot Performin a Left Turn at an Intersection](https://www.youtube.com/watch?v=2Pq49RQnNI0)
+- [Robot Docking and Undocking](https://www.youtube.com/watch?v=L7cs-OAEkkU)
+- [Gazebo Simulation Demo](https://www.youtube.com/watch?v=34wwi-BHo8g)
 
 ## Documentation
 
@@ -25,6 +27,10 @@ For a detailed document which describes the design and implementation of the pro
 ## Setting up and Running the Project
 
 Please see appendices B and C of the [Final Report](/documents/Carleton Mail Delivery Robot Report.pdf) for instructions on how to set up and run the project.
+
+## Simulation Repository
+
+A repository containing everything necessary to simulate the robot using Gazebo can be found [here](https://github.com/deniscengu/carleton-mail-delivery-robot-gazebo)
 
 ## Previous Iterations of the Project
 
