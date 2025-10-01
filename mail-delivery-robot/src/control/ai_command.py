@@ -11,12 +11,12 @@ class ai_command(Node):
         self.timer = self.create_timer(3.0, self.query_ollama)
 
     def query_ollama(self):
-        prompt = "Suggest a movement command for the robot: 'forward', 'backward', 'left', 'right', or 'stop'. Y        ou should only send one word answers."
+        prompt = "Suggest a movement command for the robot: 'forward', 'backward', 'left', 'right', or 'stop'. You should only send one word answers."
         try:
             response = requests.post(
                 'http://localhost:11434/api/models/qwen3/completions',    
-                json={"prompt": prompt, "max_tokens": 10},
-                timeout=5)
+                json={"prompt": prompt, "max_tokens": 10, "think": False},
+                timeout=3)
             if response.status_code == 200:
                 text = response.json()['choices'][0]['message']['content'].lower()
                 self.get_logger().info(f"Ollama reply: {text}")
@@ -45,12 +45,12 @@ class ai_command(Node):
         self.publisher.publish(twist)
         self.get_logger().info(f"Published command: {text.strip()}")
         
-    def main(args=None):
-        rclpy.init(args=args)
-        node = SimpleAINode()
-        rclpy.spin(node)
-        node.destroy_node()
-        rclpy.shutdown()
+def main(args=None):
+    rclpy.init(args=args)
+    node = ai_command()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
