@@ -20,11 +20,11 @@ def generate_launch_description():
             executable='captain',
             name='captain'
         ),
-        Node(
-            package='mail-delivery-robot',
-            executable='camera_sensor',
-            name='camera_sensor'
-        ),
+       # Node(
+       #     package='mail-delivery-robot',
+       #     executable='camera_sensor',
+       #     name='camera_sensor'
+       # ),
         Node(
             package='mail-delivery-robot',
             executable='lidar_sensor',
