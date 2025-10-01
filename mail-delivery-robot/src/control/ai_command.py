@@ -14,11 +14,11 @@ class ai_command(Node):
         prompt = "Suggest a movement command for the robot: 'forward', 'backward', 'left', 'right', or 'stop'. You should only send one word answers."
         try:
             response = requests.post(
-                'http://localhost:11434/api/models/qwen3/completions',    
-                json={"prompt": prompt, "max_tokens": 10, "think": False},
-                timeout=3)
+                'http://localhost:11434/api/generate',    
+                json={"model": "qwen2.5:0.5b", "prompt": prompt,"stream": False},
+                timeout=60)
             if response.status_code == 200:
-                text = response.json()['choices'][0]['message']['content'].lower()
+                text = response.json()['response'].strip().lower()
                 self.get_logger().info(f"Ollama reply: {text}")
                 self.publish_command(text)
             else:
