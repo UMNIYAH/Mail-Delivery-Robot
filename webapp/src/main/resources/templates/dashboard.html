@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail Delivery Robot Dashboard</title>
+    <style>
+        .dashboard-container {
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .status-bar {
+            width: 200px;
+            height: 20px;
+            border: 2px solid #333;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .status-level {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="status-bar">
+            <div id="battery-level" class="status-level"></div>
+        </div>
+        <div id="battery-status" class="status">Robot Batter Status: Loading...</div>
+    </div>
+
+    <script>
+        let batteryLevel = 75;
+
+        function updateBatteryDisplay() {
+            const batteryLevelElement = document.getElementById('battery-level');
+            const batteryStatusElement = document.getElementById('battery-status');
+
+            batteryLevelElement.style.width = `${batteryLevel}%`;
+            
+            batteryStatusElement.textContent = `Battery Status: ${batteryLevel.toFixed(2)}%`;
+
+            if (batteryLevel > 70) {
+                batteryLevelElement.style.backgroundColor = '#4CAF50';
+            } else if (batteryLevel > 40) {
+                batteryLevelElement.style.backgroundColor = '#FFC107';
+            } else {
+                batteryLevelElement.style.backgroundColor = '#F44336';
+            }
+        }
+
+        updateBatteryDisplay();
+
+        setInterval(() => {
+            batteryLevel = Math.max(0, Math.min(100, batteryLevel + (Math.random() * 10 - 5)));
+            updateBatteryDisplay();
+        }, 2000);
+    </script>
+</body>
+</html>
