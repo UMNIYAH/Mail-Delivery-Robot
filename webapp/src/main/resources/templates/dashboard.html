@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail Delivery Robot Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/roslib/build/roslib.min.js"></script>
+
+    <style>
+        .dashboard-container {
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .status-bar {
+            width: 200px;
+            height: 20px;
+            border: 2px solid #333;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .status-level {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="status-bar">
+            <div id="battery-level" class="status-level"></div>
+        </div>
+        <div id="battery-status" class="status">Robot Batter Status: Loading...</div>
+    </div>
+
+    <script>
+	const ros = new ROSLIB.Ros({
+	        url: 'ws://192.168.186.3:9090' 
+	    });a
+
+	    ros.on('connection', () => {
+	        console.log('Connected to rosbridge');
+	    });
+
+	    ros.on('error', (error) => {
+	        console.error('Error connecting to rosbridge:', error);
+	    });
+
+	    ros.on('close', () => {
+	        console.log('Connection to rosbridge closed');
+	    });
+
+	    // Subscribe to /battery_state
+	    const batteryListener = new ROSLIB.Topic({
+	        ros: ros,
+	        name: '/battery_state',
+	        messageType: 'sensor_msgs/msg/BatteryState'
+	    });
+
+	    function updateBatteryDisplay(level) {
+	        const batteryLevelElement = document.getElementById('battery-level');
+	        const batteryStatusElement = document.getElementById('battery-status');
+
+	        batteryLevelElement.style.width = `${level}%`;
+	        batteryStatusElement.textContent = `Battery Status: ${level.toFixed(2)}%`;
+
+	        if (level > 70) {
+	            batteryLevelElement.style.backgroundColor = '#4CAF50';
+	        } else if (level > 40) {
+	            batteryLevelElement.style.backgroundColor = '#FFC107';
+	        } else {
+	            batteryLevelElement.style.backgroundColor = '#F44336';
+	        }
+	   	 }	
+
+	    	// Update dashboard whenever new battery data arrives
+	    	batteryListener.subscribe((message) => {
+	        	const percentage = (message.percentage || 0) * 100;
+	        	updateBatteryDisplay(percentage);
+	    	});
+    </script>
+</body>
+</html>
