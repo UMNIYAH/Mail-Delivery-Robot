@@ -1,0 +1,157 @@
+running egg_info
+creating ../build/mail-delivery-robot/mail_delivery_robot.egg-info
+writing ../build/mail-delivery-robot/mail_delivery_robot.egg-info/PKG-INFO
+writing dependency_links to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/dependency_links.txt
+writing entry points to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/entry_points.txt
+writing requirements to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/requires.txt
+writing top-level names to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/top_level.txt
+writing manifest file '../build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'
+package init file 'src/tests/__init__.py' not found (or not a regular file)
+reading manifest file '../build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/camera_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/beacon_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/bumper_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/lidar_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/navigation_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/intersection_detection_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+copying src/sensors/battery_monitor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers
+copying src/layers/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers
+copying src/layers/avoidance_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers
+copying src/layers/docking_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers
+copying src/layers/travel_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers
+copying src/layers/turning_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication
+copying src/communication/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication
+copying src/communication/client.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication
+copying src/communication/music_player.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control
+copying src/control/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control
+copying src/control/captain.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control
+copying src/control/ai_command.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control
+copying src/control/report_generator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control
+copying src/control/action_translator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools
+copying src/tools/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools
+copying src/tools/csv_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools
+copying src/tools/map.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools
+copying src/tools/nav_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tests
+copying src/tests/travel_analyzer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tests
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/mail-delivery-robot
+copying mail-delivery-robot/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/mail-delivery-robot
+running install
+running install_lib
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/nav_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/map.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/csv_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/ai_command.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/report_generator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/captain.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/action_translator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tests
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tests/travel_analyzer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tests
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/lidar_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/navigation_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/battery_monitor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/intersection_detection_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/beacon_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/bumper_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/camera_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/docking_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/travel_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/avoidance_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/turning_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication/client.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication/music_player.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail-delivery-robot
+copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/mail-delivery-robot/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail-delivery-robot
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/nav_parser.py to nav_parser.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/map.py to map.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/csv_parser.py to csv_parser.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/ai_command.py to ai_command.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/report_generator.py to report_generator.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/captain.py to captain.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/action_translator.py to action_translator.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tests/travel_analyzer.py to travel_analyzer.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/lidar_sensor.py to lidar_sensor.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/navigation_unit.py to navigation_unit.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/battery_monitor.py to battery_monitor.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/intersection_detection_unit.py to intersection_detection_unit.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/beacon_sensor.py to beacon_sensor.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/bumper_sensor.py to bumper_sensor.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/camera_sensor.py to camera_sensor.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/docking_layer.py to docking_layer.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/travel_layer.py to travel_layer.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/avoidance_layer.py to avoidance_layer.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/turning_layer.py to turning_layer.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication/client.py to client.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication/music_player.py to music_player.cpython-310.pyc
+byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail-delivery-robot/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/ament_index
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/ament_index/resource_index
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/ament_index/resource_index/packages
+copying resource/mail-delivery-robot -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/ament_index/resource_index/packages
+copying package.xml -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config
+copying src/config/config.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config
+copying src/config/map.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config
+copying src/config/battery_config.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config
+copying src/config/beacons.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config
+copying src/config/beacon_connections.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config
+creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch
+copying launch/analysis.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch
+copying launch/fair_demo.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch
+copying launch/robot_with_music.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch
+copying launch/robot.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch
+running install_egg_info
+Copying ../build/mail-delivery-robot/mail_delivery_robot.egg-info to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail_delivery_robot-0.0.0-py3.10.egg-info
+running install_scripts
+Installing ai_command script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing avoidance_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing battery_monitor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing beacon_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing bumper_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing camera_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing captain script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing client script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing csv_parser script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing docking_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing intersection_detection_unit script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing lidar_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing map script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing music_player script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing nav_parser script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing navigation_unit script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing report_generator script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing travel_analyzer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing travel_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+Installing turning_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+writing list of installed files to '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/install.log'

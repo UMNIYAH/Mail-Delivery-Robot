@@ -1,0 +1,45 @@
+[3.291s] Invoking command in '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot': PYTHONPATH=/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/mail-delivery-robot build --build-base /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build install --record /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/install.log --single-version-externally-managed install_data
+[4.572s] running egg_info
+[4.575s] writing ../build/mail-delivery-robot/mail_delivery_robot.egg-info/PKG-INFO
+[4.576s] writing dependency_links to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/dependency_links.txt
+[4.577s] writing entry points to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/entry_points.txt
+[4.578s] writing requirements to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/requires.txt
+[4.579s] writing top-level names to ../build/mail-delivery-robot/mail_delivery_robot.egg-info/top_level.txt
+[4.587s] package init file 'src/tests/__init__.py' not found (or not a regular file)
+[4.590s] reading manifest file '../build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'
+[4.592s] adding license file 'LICENSE'
+[4.597s] writing manifest file '../build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'
+[4.598s] running build
+[4.598s] running build_py
+[4.605s] copying src/control/report_generator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control
+[4.610s] running install
+[4.611s] running install_lib
+[4.621s] copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/report_generator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control
+[4.634s] byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/report_generator.py to report_generator.cpython-310.pyc
+[4.641s] running install_data
+[4.644s] running install_egg_info
+[4.652s] removing '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail_delivery_robot-0.0.0-py3.10.egg-info' (and everything under it)
+[4.654s] Copying ../build/mail-delivery-robot/mail_delivery_robot.egg-info to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail_delivery_robot-0.0.0-py3.10.egg-info
+[4.660s] running install_scripts
+[4.747s] Installing ai_command script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.748s] Installing avoidance_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.749s] Installing battery_monitor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.750s] Installing beacon_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.751s] Installing bumper_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.752s] Installing camera_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.753s] Installing captain script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.754s] Installing client script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.755s] Installing csv_parser script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.756s] Installing docking_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.757s] Installing intersection_detection_unit script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.758s] Installing lidar_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.759s] Installing map script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.760s] Installing music_player script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.761s] Installing nav_parser script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.762s] Installing navigation_unit script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.763s] Installing report_generator script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.764s] Installing travel_analyzer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.765s] Installing travel_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.766s] Installing turning_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot
+[4.770s] writing list of installed files to '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/install.log'
+[4.885s] Invoked command in '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot' returned '0': PYTHONPATH=/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/mail-delivery-robot build --build-base /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/build install --record /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/build/mail-delivery-robot/install.log --single-version-externally-managed install_data

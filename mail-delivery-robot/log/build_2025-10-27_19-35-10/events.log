@@ -1,0 +1,211 @@
+[0.000000] (-) TimerEvent: {}
+[0.001367] (mail-delivery-robot) JobQueued: {'identifier': 'mail-delivery-robot', 'dependencies': OrderedDict()}
+[0.001718] (mail-delivery-robot) JobStarted: {'identifier': 'mail-delivery-robot'}
+[0.097205] (-) TimerEvent: {}
+[0.197870] (-) TimerEvent: {}
+[0.298690] (-) TimerEvent: {}
+[0.399934] (-) TimerEvent: {}
+[0.500606] (-) TimerEvent: {}
+[0.601268] (-) TimerEvent: {}
+[0.701893] (-) TimerEvent: {}
+[0.802542] (-) TimerEvent: {}
+[0.903165] (-) TimerEvent: {}
+[1.003793] (-) TimerEvent: {}
+[1.104532] (-) TimerEvent: {}
+[1.205288] (-) TimerEvent: {}
+[1.305986] (-) TimerEvent: {}
+[1.406674] (-) TimerEvent: {}
+[1.507286] (-) TimerEvent: {}
+[1.607954] (-) TimerEvent: {}
+[1.708632] (-) TimerEvent: {}
+[1.809248] (-) TimerEvent: {}
+[1.909864] (-) TimerEvent: {}
+[2.010531] (-) TimerEvent: {}
+[2.111224] (-) TimerEvent: {}
+[2.212157] (-) TimerEvent: {}
+[2.312871] (-) TimerEvent: {}
+[2.413574] (-) TimerEvent: {}
+[2.514331] (-) TimerEvent: {}
+[2.615048] (-) TimerEvent: {}
+[2.715775] (-) TimerEvent: {}
+[2.816484] (-) TimerEvent: {}
+[2.917165] (-) TimerEvent: {}
+[3.017827] (-) TimerEvent: {}
+[3.118679] (-) TimerEvent: {}
+[3.219761] (-) TimerEvent: {}
+[3.229113] (mail-delivery-robot) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', 'build/mail-delivery-robot', 'build', '--build-base', '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build', 'install', '--record', '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot', 'env': {'USER': 'capstone2526', 'SSH_CLIENT': '100.93.35.55 58063 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'MOTD_SHOWN': 'pam', 'HOME': '/home/capstone2526', 'OLDPWD': '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/src', 'SSH_TTY': '/dev/pts/0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'LC_TERMINAL_VERSION': '3.6.4', 'LOGNAME': 'capstone2526', '_': '/usr/bin/colcon', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', 'PATH': '/home/capstone2526/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'SHELL': '/bin/bash', 'LC_TERMINAL': 'iTerm2', 'PWD': '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '100.93.35.55 58063 100.109.151.66 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'COLCON': '1', 'PYTHONPATH': '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages:'}, 'shell': False}
+[3.319925] (-) TimerEvent: {}
+[3.420572] (-) TimerEvent: {}
+[3.521267] (-) TimerEvent: {}
+[3.621988] (-) TimerEvent: {}
+[3.722681] (-) TimerEvent: {}
+[3.823330] (-) TimerEvent: {}
+[3.923937] (-) TimerEvent: {}
+[4.024548] (-) TimerEvent: {}
+[4.125223] (-) TimerEvent: {}
+[4.225802] (mail-delivery-robot) StdoutLine: {'line': b'running egg_info\n'}
+[4.226620] (-) TimerEvent: {}
+[4.229482] (mail-delivery-robot) StdoutLine: {'line': b'creating build/mail-delivery-robot/mail_delivery_robot.egg-info\n'}
+[4.230170] (mail-delivery-robot) StdoutLine: {'line': b'writing build/mail-delivery-robot/mail_delivery_robot.egg-info/PKG-INFO\n'}
+[4.231054] (mail-delivery-robot) StdoutLine: {'line': b'writing dependency_links to build/mail-delivery-robot/mail_delivery_robot.egg-info/dependency_links.txt\n'}
+[4.232275] (mail-delivery-robot) StdoutLine: {'line': b'writing entry points to build/mail-delivery-robot/mail_delivery_robot.egg-info/entry_points.txt\n'}
+[4.232877] (mail-delivery-robot) StdoutLine: {'line': b'writing requirements to build/mail-delivery-robot/mail_delivery_robot.egg-info/requires.txt\n'}
+[4.233859] (mail-delivery-robot) StdoutLine: {'line': b'writing top-level names to build/mail-delivery-robot/mail_delivery_robot.egg-info/top_level.txt\n'}
+[4.234564] (mail-delivery-robot) StdoutLine: {'line': b"writing manifest file 'build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'\n"}
+[4.240260] (mail-delivery-robot) StderrLine: {'line': b"package init file 'src/tests/__init__.py' not found (or not a regular file)\n"}
+[4.243365] (mail-delivery-robot) StdoutLine: {'line': b"reading manifest file 'build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'\n"}
+[4.244468] (mail-delivery-robot) StdoutLine: {'line': b"adding license file 'LICENSE'\n"}
+[4.248823] (mail-delivery-robot) StdoutLine: {'line': b"writing manifest file 'build/mail-delivery-robot/mail_delivery_robot.egg-info/SOURCES.txt'\n"}
+[4.249479] (mail-delivery-robot) StdoutLine: {'line': b'running build\n'}
+[4.249946] (mail-delivery-robot) StdoutLine: {'line': b'running build_py\n'}
+[4.250861] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build\n'}
+[4.251459] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib\n'}
+[4.251966] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src\n'}
+[4.252631] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.253153] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.253520] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/camera_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.254729] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/beacon_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.256229] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/bumper_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.257718] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/lidar_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.259360] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/navigation_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.261090] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/intersection_detection_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.262816] (mail-delivery-robot) StdoutLine: {'line': b'copying src/sensors/battery_monitor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors\n'}
+[4.264594] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers\n'}
+[4.265194] (mail-delivery-robot) StdoutLine: {'line': b'copying src/layers/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers\n'}
+[4.266162] (mail-delivery-robot) StdoutLine: {'line': b'copying src/layers/avoidance_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers\n'}
+[4.268165] (mail-delivery-robot) StdoutLine: {'line': b'copying src/layers/docking_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers\n'}
+[4.269944] (mail-delivery-robot) StdoutLine: {'line': b'copying src/layers/travel_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers\n'}
+[4.271801] (mail-delivery-robot) StdoutLine: {'line': b'copying src/layers/turning_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers\n'}
+[4.273210] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication\n'}
+[4.273782] (mail-delivery-robot) StdoutLine: {'line': b'copying src/communication/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication\n'}
+[4.274700] (mail-delivery-robot) StdoutLine: {'line': b'copying src/communication/client.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication\n'}
+[4.276534] (mail-delivery-robot) StdoutLine: {'line': b'copying src/communication/music_player.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication\n'}
+[4.278326] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control\n'}
+[4.278987] (mail-delivery-robot) StdoutLine: {'line': b'copying src/control/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control\n'}
+[4.279854] (mail-delivery-robot) StdoutLine: {'line': b'copying src/control/captain.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control\n'}
+[4.281658] (mail-delivery-robot) StdoutLine: {'line': b'copying src/control/ai_command.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control\n'}
+[4.283533] (mail-delivery-robot) StdoutLine: {'line': b'copying src/control/report_generator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control\n'}
+[4.284533] (mail-delivery-robot) StdoutLine: {'line': b'copying src/control/action_translator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control\n'}
+[4.286348] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools\n'}
+[4.286987] (mail-delivery-robot) StdoutLine: {'line': b'copying src/tools/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools\n'}
+[4.287754] (mail-delivery-robot) StdoutLine: {'line': b'copying src/tools/csv_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools\n'}
+[4.289429] (mail-delivery-robot) StdoutLine: {'line': b'copying src/tools/map.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools\n'}
+[4.291003] (mail-delivery-robot) StdoutLine: {'line': b'copying src/tools/nav_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools\n'}
+[4.292444] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tests\n'}
+[4.293022] (mail-delivery-robot) StdoutLine: {'line': b'copying src/tests/travel_analyzer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tests\n'}
+[4.295023] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/mail-delivery-robot\n'}
+[4.295647] (mail-delivery-robot) StdoutLine: {'line': b'copying mail-delivery-robot/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/mail-delivery-robot\n'}
+[4.297918] (mail-delivery-robot) StdoutLine: {'line': b'running install\n'}
+[4.299429] (mail-delivery-robot) StdoutLine: {'line': b'running install_lib\n'}
+[4.302822] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src\n'}
+[4.303634] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools\n'}
+[4.304245] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools\n'}
+[4.305367] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/nav_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools\n'}
+[4.306477] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/map.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools\n'}
+[4.307457] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tools/csv_parser.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools\n'}
+[4.308649] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control\n'}
+[4.309231] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control\n'}
+[4.310148] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/ai_command.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control\n'}
+[4.311202] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/report_generator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control\n'}
+[4.312171] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/captain.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control\n'}
+[4.313079] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/control/action_translator.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control\n'}
+[4.314190] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tests\n'}
+[4.314773] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/tests/travel_analyzer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tests\n'}
+[4.316020] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.316566] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/lidar_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.317600] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/navigation_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.318601] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/battery_monitor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.319548] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.320464] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/intersection_detection_unit.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.321452] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/beacon_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.322428] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/bumper_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.323397] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/sensors/camera_sensor.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors\n'}
+[4.324603] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers\n'}
+[4.325134] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers\n'}
+[4.326079] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/docking_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers\n'}
+[4.326712] (-) TimerEvent: {}
+[4.327160] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/travel_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers\n'}
+[4.328382] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/avoidance_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers\n'}
+[4.329389] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/layers/turning_layer.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers\n'}
+[4.330598] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication\n'}
+[4.331174] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication\n'}
+[4.332278] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication/client.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication\n'}
+[4.333302] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/src/communication/music_player.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication\n'}
+[4.334636] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail-delivery-robot\n'}
+[4.335226] (mail-delivery-robot) StdoutLine: {'line': b'copying /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/build/lib/mail-delivery-robot/__init__.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail-delivery-robot\n'}
+[4.337901] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/__init__.py to __init__.cpython-310.pyc\n'}
+[4.339513] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/nav_parser.py to nav_parser.cpython-310.pyc\n'}
+[4.342194] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/map.py to map.cpython-310.pyc\n'}
+[4.344151] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tools/csv_parser.py to csv_parser.cpython-310.pyc\n'}
+[4.346200] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/__init__.py to __init__.cpython-310.pyc\n'}
+[4.347850] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/ai_command.py to ai_command.cpython-310.pyc\n'}
+[4.351044] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/report_generator.py to report_generator.cpython-310.pyc\n'}
+[4.353505] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/captain.py to captain.cpython-310.pyc\n'}
+[4.357058] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/control/action_translator.py to action_translator.cpython-310.pyc\n'}
+[4.359491] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/tests/travel_analyzer.py to travel_analyzer.cpython-310.pyc\n'}
+[4.362906] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/lidar_sensor.py to lidar_sensor.cpython-310.pyc\n'}
+[4.366733] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/navigation_unit.py to navigation_unit.cpython-310.pyc\n'}
+[4.370083] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/battery_monitor.py to battery_monitor.cpython-310.pyc\n'}
+[4.373287] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/__init__.py to __init__.cpython-310.pyc\n'}
+[4.374710] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/intersection_detection_unit.py to intersection_detection_unit.cpython-310.pyc\n'}
+[4.377977] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/beacon_sensor.py to beacon_sensor.cpython-310.pyc\n'}
+[4.381238] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/bumper_sensor.py to bumper_sensor.cpython-310.pyc\n'}
+[4.383903] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/sensors/camera_sensor.py to camera_sensor.cpython-310.pyc\n'}
+[4.386695] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/__init__.py to __init__.cpython-310.pyc\n'}
+[4.388200] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/docking_layer.py to docking_layer.cpython-310.pyc\n'}
+[4.391193] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/travel_layer.py to travel_layer.cpython-310.pyc\n'}
+[4.395505] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/avoidance_layer.py to avoidance_layer.cpython-310.pyc\n'}
+[4.399109] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/layers/turning_layer.py to turning_layer.cpython-310.pyc\n'}
+[4.402306] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication/__init__.py to __init__.cpython-310.pyc\n'}
+[4.403888] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication/client.py to client.cpython-310.pyc\n'}
+[4.405258] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/src/communication/music_player.py to music_player.cpython-310.pyc\n'}
+[4.410397] (mail-delivery-robot) StdoutLine: {'line': b'byte-compiling /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail-delivery-robot/__init__.py to __init__.cpython-310.pyc\n'}
+[4.411806] (mail-delivery-robot) StdoutLine: {'line': b'running install_data\n'}
+[4.412363] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/ament_index\n'}
+[4.413116] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/ament_index/resource_index\n'}
+[4.413611] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/ament_index/resource_index/packages\n'}
+[4.413974] (mail-delivery-robot) StdoutLine: {'line': b'copying resource/mail-delivery-robot -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/ament_index/resource_index/packages\n'}
+[4.414486] (mail-delivery-robot) StdoutLine: {'line': b'copying package.xml -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot\n'}
+[4.415206] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.415719] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config\n'}
+[4.416214] (mail-delivery-robot) StdoutLine: {'line': b'copying src/config/config.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config\n'}
+[4.419532] (mail-delivery-robot) StdoutLine: {'line': b'copying src/config/map.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config\n'}
+[4.421053] (mail-delivery-robot) StdoutLine: {'line': b'copying src/config/battery_config.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config\n'}
+[4.422489] (mail-delivery-robot) StdoutLine: {'line': b'copying src/config/beacons.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config\n'}
+[4.423880] (mail-delivery-robot) StdoutLine: {'line': b'copying src/config/beacon_connections.csv -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot/config\n'}
+[4.425469] (mail-delivery-robot) StdoutLine: {'line': b'creating /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch\n'}
+[4.426130] (mail-delivery-robot) StdoutLine: {'line': b'copying launch/analysis.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch\n'}
+[4.426839] (-) TimerEvent: {}
+[4.428081] (mail-delivery-robot) StdoutLine: {'line': b'copying launch/fair_demo.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch\n'}
+[4.429730] (mail-delivery-robot) StdoutLine: {'line': b'copying launch/robot_with_music.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch\n'}
+[4.431268] (mail-delivery-robot) StdoutLine: {'line': b'copying launch/robot.launch.py -> /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/share/mail-delivery-robot/launch\n'}
+[4.432800] (mail-delivery-robot) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.440877] (mail-delivery-robot) StdoutLine: {'line': b'Copying build/mail-delivery-robot/mail_delivery_robot.egg-info to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/python3.10/site-packages/mail_delivery_robot-0.0.0-py3.10.egg-info\n'}
+[4.448757] (mail-delivery-robot) StdoutLine: {'line': b'running install_scripts\n'}
+[4.527006] (-) TimerEvent: {}
+[4.534185] (mail-delivery-robot) StdoutLine: {'line': b'Installing ai_command script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.534966] (mail-delivery-robot) StdoutLine: {'line': b'Installing avoidance_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.535655] (mail-delivery-robot) StdoutLine: {'line': b'Installing battery_monitor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.536325] (mail-delivery-robot) StdoutLine: {'line': b'Installing beacon_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.536982] (mail-delivery-robot) StdoutLine: {'line': b'Installing bumper_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.537628] (mail-delivery-robot) StdoutLine: {'line': b'Installing camera_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.538311] (mail-delivery-robot) StdoutLine: {'line': b'Installing captain script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.538950] (mail-delivery-robot) StdoutLine: {'line': b'Installing client script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.539596] (mail-delivery-robot) StdoutLine: {'line': b'Installing csv_parser script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.540287] (mail-delivery-robot) StdoutLine: {'line': b'Installing docking_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.540945] (mail-delivery-robot) StdoutLine: {'line': b'Installing intersection_detection_unit script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.541611] (mail-delivery-robot) StdoutLine: {'line': b'Installing lidar_sensor script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.542286] (mail-delivery-robot) StdoutLine: {'line': b'Installing map script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.542955] (mail-delivery-robot) StdoutLine: {'line': b'Installing music_player script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.543599] (mail-delivery-robot) StdoutLine: {'line': b'Installing nav_parser script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.544238] (mail-delivery-robot) StdoutLine: {'line': b'Installing navigation_unit script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.544896] (mail-delivery-robot) StdoutLine: {'line': b'Installing report_generator script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.545546] (mail-delivery-robot) StdoutLine: {'line': b'Installing travel_analyzer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.546174] (mail-delivery-robot) StdoutLine: {'line': b'Installing travel_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.546921] (mail-delivery-robot) StdoutLine: {'line': b'Installing turning_layer script to /home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/install/mail-delivery-robot/lib/mail-delivery-robot\n'}
+[4.550216] (mail-delivery-robot) StdoutLine: {'line': b"writing list of installed files to '/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot/mail-delivery-robot/build/mail-delivery-robot/install.log'\n"}
+[4.627257] (-) TimerEvent: {}
+[4.662321] (mail-delivery-robot) CommandEnded: {'returncode': 0}
+[4.727518] (-) TimerEvent: {}
+[4.748478] (mail-delivery-robot) JobEnded: {'identifier': 'mail-delivery-robot', 'rc': 0}
+[4.751591] (-) EventReactorShutdown: {}

@@ -2,18 +2,13 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import BatteryState
 from jinja2 import Environment, FileSystemLoader
-from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 import os
 
 class ReportGenerator(Node):
     def __init__(self):
         super().__init__('report_generator')
         self.battery_level = 0.0
-        qos_profile = QoSProfile(
-                reliability=QoSReliabilityPolicy.BEST_EFFORT,
-                depth = 10
-        )
-        self.create_subscription(BatteryState, '/battery_state', self.battery_callback, qos_profile)
+        self.create_subscription(BatteryState, '/battery_state', self.battery_callback, 10)
 
         # Jinja2 setup
         self.template_dir = "/home/capstone2526/cmdr_ws/src/carleton-mail-delivery-robot"
