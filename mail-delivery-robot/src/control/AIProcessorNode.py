@@ -5,7 +5,7 @@ from ollama import chat
 
 """
 ros2 run captain
-ros2 run generic_ai_node
+ros2 run AIProcessorNode
 """
 class OllamaChat:
     def __init__(self, model = "qwen3", stream = False, think = False):
