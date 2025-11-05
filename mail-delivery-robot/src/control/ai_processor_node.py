@@ -5,7 +5,7 @@ from ollama import chat
 
 """
 ros2 run captain
-ros2 run AIProcessorNode
+ros2 run ai_processor_node
 """
 class OllamaChat:
     def __init__(self, model = "qwen3", stream = False, think = False):
@@ -25,7 +25,7 @@ class OllamaChat:
         except Exception as e:
             return f"Error: {prompt}"
 
-class AIProcessorNode(Node):
+class ai_processor_node(Node):
     """
     general purpose AI Processor Node, subscribes to multiple topics
     basically send data to LLM and publish responses
@@ -88,7 +88,7 @@ class AIProcessorNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = AIProcessorNode()
+    node = ai_processor_node()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
