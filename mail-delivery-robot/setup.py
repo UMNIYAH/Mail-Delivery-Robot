@@ -63,7 +63,7 @@ setup(
             'csv_parser = src.tools.csv_parser:main',
             'map = src.tools.map:main',
 	    'ai_command = src.control.ai_command:main',
-            'nav_parser = src.tools.nav_parser:main',
+            'nav_parser = src.tools.nav_parser:main', 'ai_processor_node = src.control.ai_processor_node:main'
         ],
     },
 )
