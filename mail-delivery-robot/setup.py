@@ -24,6 +24,7 @@ setup(
         'src.communication.music_player',
         'src.control.captain',
 	'src.control.ai_command',
+        'src.control.ai_processor_node',
         'src.control.action_translator',
         'src.tools.csv_parser',
         'src.tools.map',
