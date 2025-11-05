@@ -45,6 +45,9 @@ class Captain(Node):
 
         self.timer = self.create_timer(0.2, self.send_command)
 
+        self.ai_response_sub = self.create_subscription(String, 'ai_response', self.ai_response, 10)
+        self.ai_latest_responses = None
+
     def parse_action(self, data):
         prio, action = data.data.split(':')
         self.current_actions[prio] = action
@@ -82,6 +85,16 @@ class Captain(Node):
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
         self.get_logger().info(str(feedback))
+
+    def ai_responses(self, msg):
+        ai_response = msg.data.strip().upper()
+        self.get_logger().info(f"ai_response: {ai_response}")
+        if ai_response in ["DOCK", "UNDOCK", "FORWARD", "BACKWARD", "LEFT", "RIGHT", "STOP"]:
+            self.current_actions['0'] = ai_response
+            self.ai_latest_responses = ai_response
+        else:
+            self.get_logger().info("ai_response: unknown ai_response, ignoring")
+
 
 def main():
     rclpy.init()
