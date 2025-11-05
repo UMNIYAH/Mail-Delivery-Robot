@@ -86,7 +86,7 @@ class Captain(Node):
         feedback = feedback_msg.feedback
         self.get_logger().info(str(feedback))
 
-    def ai_responses(self, msg):
+    def ai_response(self, msg):
         ai_response = msg.data.strip().upper()
         self.get_logger().info(f"ai_response: {ai_response}")
         if ai_response in ["DOCK", "UNDOCK", "FORWARD", "BACKWARD", "LEFT", "RIGHT", "STOP"]:
