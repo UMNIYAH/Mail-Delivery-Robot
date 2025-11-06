@@ -1,12 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
 # ROS 2 build artifacts
 build/
 install/
 log/
 
-# Python cache
-__pycache__/
-*.pyc
-
-# VSCode & system files
+# Editor files
 .vscode/
-.DS_Store
+.idea/
+
+# Local packages or binaries
+sllidar_ros2/
