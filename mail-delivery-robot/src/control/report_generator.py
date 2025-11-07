@@ -8,8 +8,12 @@ import os
 class ReportGenerator(Node):
     def __init__(self):
         super().__init__('report_generator')
+
         self.battery_level = 0.0
         self.voltage_level = 0.0
+        self.temperature_level = 0.0
+        
+
         qos_profile = QoSProfile(
                 reliability=QoSReliabilityPolicy.BEST_EFFORT,
                 depth = 10
@@ -25,12 +29,15 @@ class ReportGenerator(Node):
         # Update battery and generate report
         self.battery_level = msg.percentage * 100
         self.voltage_level = msg.voltage
+        self.temperature_level = msg.temperature
 
         self.generate_report()
 
     def generate_report(self):
         # Render template with current battery level
-        html_content = self.template.render(battery_level=self.battery_level, voltage_level=self.voltage_level)
+        html_content = self.template.render(battery_level=self.battery_level, 
+                                            voltage_level=self.voltage_level, 
+                                            temperature_level=self.temperature_level)
         output_path = "/home/capstone2526/robot_report.html"
         with open(output_path, "w") as f:
             f.write(html_content)
