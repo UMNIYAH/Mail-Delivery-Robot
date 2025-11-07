@@ -24,7 +24,6 @@
         .status-level {
             width: 0%;
             height: 100%;
-            background-color: #4CAF50;
             transition: width 0.3s ease;
         }
 
@@ -39,11 +38,13 @@
         <div class="status-bar">
             <div id="battery-level" class="status-level"></div>
         </div>
-        <div id="battery-status" class="status">Robot Batter Status: Loading...</div>
+        <div id="battery-status" class="status">
+            Robot Battery Status: {{ battery_level }}%
+        </div>
     </div>
 
     <script>
-        let batteryLevel = 75;
+        let batteryLevel = { battery_level };
 
         function updateBatteryDisplay() {
             const batteryLevelElement = document.getElementById('battery-level');
