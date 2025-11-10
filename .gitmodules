@@ -1,0 +1,6 @@
+[submodule "gazebo_simulator/src/irobot_create_msgs"]
+	path = gazebo_simulator/src/irobot_create_msgs
+	url = https://github.com/iRobotEducation/irobot_create_msgs
+[submodule "gazebo_simulator/src/carleton-mail-delivery-robot-gazebo"]
+	path = gazebo_simulator/src/carleton-mail-delivery-robot-gazebo
+	url = https://github.com/deniscengu/carleton-mail-delivery-robot-gazebo
