@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
-from src.control.action_translator import ActionTranslator
+from control.action_translator import ActionTranslator
 from rclpy.action import ActionClient
 from irobot_create_msgs.action import Dock, Undock
 import subprocess
