@@ -14,82 +14,106 @@ class Logger(Node):
 
     """
 
+   #!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy
+from sensor_msgs.msg import BatteryState
+from jinja2 import Environment, FileSystemLoader
+import os
+import re
+
+class GeneralLogger(Node):
     def __init__(self):
         super().__init__('general_logger')
+
         self.declare_parameter('log_dir', './tools/logs')
         self.log_dir = self.get_parameter('log_dir').value
         os.makedirs(self.log_dir, exist_ok=True)
 
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.log_path = os.path.join(self.log_dir, f"robot_log_{timestamp}.txt")
+        self.log_path = os.path.join(self.log_dir, "robot_log_wallFollowing.txt")
         self.log_file = open(self.log_path, "a")
-        self.get_logger().info(f"Logging all data to {self.log_path}")
+        self.write_log("SYSTEM", f"Logging all data to {self.log_path}")
 
-        # Subscribe to captain actions
-        self.create_subscription(String, '/actions', self.captain_callback, 10)
+        self.generate_report()
 
-        # Docking status to stop logging
-        self.create_subscription(String, '/docking_status', self.docking_callback, 10)
-
-        # Wall-following tracking
-        self.wall_following_start = None
-        self.total_wall_following_time = 0.0
-
-    def captain_callback(self, msg: String):
-        """
-        Track wall-following duration from Captain output
-        """
-        self.write_log("/actions", msg.data)
-        # Detect if any action contains WALL_FOLLOW
-        if "WALL_FOLLOW" in msg.data:
-            if self.wall_following_start is None:
-                self.wall_following_start = datetime.now()
-        else:
-            if self.wall_following_start is not None:
-                elapsed = (datetime.now() - self.wall_following_start).total_seconds()
-                self.total_wall_following_time += elapsed
-                self.wall_following_start = None
-                self.get_logger().info(f"Wall-following segment ended, duration: {elapsed:.2f}s")
-
-    def docking_callback(self, msg: String):
-        if msg.data == "DOCKED":
-            # If wall-following was active, finalize time
-            if self.wall_following_start is not None:
-                elapsed = (datetime.now() - self.wall_following_start).total_seconds()
-                self.total_wall_following_time += elapsed
-            self.get_logger().info(f"Total wall-following time: {self.total_wall_following_time:.2f}s")
-            self.get_logger().info("Docking complete. Shutting down logger...")
-            rclpy.shutdown()
-
-    def write_log(self, topic, message):
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        line = f"[{timestamp}] [{topic}] {message}\n"
-        self.log_file.write(line)
+    def write_log(self, source, message):
+        self.log_file.write(f"[{source}] {message}\n")
         self.log_file.flush()
-        self.get_logger().info(line.strip())
 
-    def destroy_node(self):
-        self.log_file.close()
-        super().destroy_node()
+    def generate_report(self):
+        battery_data = {}
+
+        def battery_callback(msg):
+            battery_data['level'] = msg.percentage * 100
+            battery_data['voltage'] = msg.voltage
+            battery_data['temperature'] = msg.temperature
+
+        qos_profile = QoSProfile(
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            depth=1
+        )
+
+        sub = self.create_subscription(BatteryState, '/battery_state', battery_callback, qos_profile)
+
+        start_time = self.get_clock().now()
+        timeout_sec = 2.0
+        while 'level' not in battery_data:
+            rclpy.spin_once(self, timeout_sec=0.1)
+            elapsed = (self.get_clock().now() - start_time).nanoseconds / 1e9
+            if elapsed > timeout_sec:
+                self.get_logger().warn("No battery message received, using default values.")
+                battery_data = {'level': 0.0, 'voltage': 0.0, 'temperature': 0.0}
+                break
+
+        self.destroy_subscription(sub)
+
+        battery_level = battery_data['level']
+        voltage_level = battery_data['voltage']
+        temperature_level = battery_data['temperature']
+
+        wall_follow_time = "N/A"
+        if os.path.exists(self.log_path):
+            with open(self.log_path, "r") as f:
+                lines = f.readlines()
+            for line in reversed(lines):
+                match = re.search(r"Total wall-following time:\s*([\d.]+)s", line)
+                if match:
+                    wall_follow_time = f"{match.group(1)} s"
+                    break
+
+       
+        template_dir = os.path.dirname(os.path.realpath(__file__))
+        env = Environment(loader=FileSystemLoader(template_dir))
+        try:
+            template = env.get_template("template.html")
+        except Exception as e:
+            self.get_logger().error(f"template.html not found in {template_dir}: {e}")
+            return
+
+        html_content = template.render(
+            battery_level=battery_level,
+            voltage_level=voltage_level,
+            temperature_level=temperature_level,
+            wall_follow_time=wall_follow_time
+        )
+
+        output_path = os.path.join(self.log_dir, "robot_report.html")
+        with open(output_path, "w") as f:
+            f.write(html_content)
+
+        self.get_logger().info(f"Report generated at {output_path}!")
+
+        open(self.log_path, 'w').close()
+        self.get_logger().info(f"Cleared wall-following log: {self.log_path}")
 
 
 def main(args=None):
     rclpy.init(args=args)
-    node = Logger()
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        node.get_logger().info("KeyboardInterrupt detected. Finalizing logs...")
-        if node.wall_following_start is not None:
-            elapsed = (datetime.now() - node.wall_following_start).total_seconds()
-            node.total_wall_following_time += elapsed
-            node.get_logger().info(f"Wall-following segment ended, duration: {elapsed:.2f}s")
-            node.wall_following_start = None
-        node.get_logger().info(f"Total wall-following time: {node.total_wall_following_time:.2f}s")
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
+    node = GeneralLogger()
+    node.destroy_node()
+    rclpy.shutdown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
