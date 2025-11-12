@@ -33,7 +33,7 @@ Please see appendices B and C of the [Final Report](https://github.com/UMNIYAH/M
 
 ## Simulation Repository
 
-A repository containing everything necessary to simulate the robot using Gazebo can be found [here](https://github.com/deniscengu/carleton-mail-delivery-robot-gazebo).
+A repository containing everything necessary to simulate the robot using Gazebo can be found [here](https://github.com/ConnorYelle/Carleton-Mail-Delivery-Robot).
 
 ## Previous Iterations of the Project
 
