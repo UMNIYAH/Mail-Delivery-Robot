@@ -5,6 +5,11 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from sensors.lidar_sensor import LidarSensor
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy
+from sensor_msgs.msg import BatteryState
+from jinja2 import Environment, FileSystemLoader
+import re
+import time
 
 class Logger(Node):
     """
@@ -14,39 +19,44 @@ class Logger(Node):
 
     """
 
-   #!/usr/bin/env python3
-import rclpy
-from rclpy.node import Node
-from rclpy.qos import QoSProfile, QoSReliabilityPolicy
-from sensor_msgs.msg import BatteryState
-from jinja2 import Environment, FileSystemLoader
-import os
-import re
 
 class GeneralLogger(Node):
     def __init__(self):
         super().__init__('general_logger')
+
+        start_time = self.start_timer()
 
         self.declare_parameter('log_dir', './tools/logs')
         self.log_dir = self.get_parameter('log_dir').value
         os.makedirs(self.log_dir, exist_ok=True)
 
         self.log_path = os.path.join(self.log_dir, "robot_log_wallFollowing.txt")
-        self.log_file = open(self.log_path, "a")
-        self.write_log("SYSTEM", f"Logging all data to {self.log_path}")
+        self.wall_log_file = open(self.log_path, "a")
+        self.write_log("SYSTEM", f"Logging all data to {self.log_path}", wall_log_file)
+
+        self.log_path = os.path.join(self.log_dir, "robot_log_tripTime.txt")
+        self.delivery_log_file = open(self.log_path, "a")
+        self.end_timer(start_time)
+        self.write_log("SYSTEM", f"Logging all data to {self.log_path}", delivery_log_file)
 
         self.generate_report()
 
-    def write_log(self, source, message):
-        self.log_file.write(f"[{source}] {message}\n")
-        self.log_file.flush()
+    def start_timer():
+        time.perf_counter()
+    
+    def end_timer(start_time):
+        end_time = time.perf_counter()
+        elapsed_time = end_time - start_time
+
+    def write_log(self, source, message, file):
+        self.file.write(f"[{source}] {message}\n")
+        self.file.flush()
 
     def generate_report(self):
         battery_data = {}
 
         def battery_callback(msg):
             battery_data['level'] = msg.percentage * 100
-            battery_data['voltage'] = msg.voltage
             battery_data['temperature'] = msg.temperature
 
         qos_profile = QoSProfile(
@@ -69,7 +79,6 @@ class GeneralLogger(Node):
         self.destroy_subscription(sub)
 
         battery_level = battery_data['level']
-        voltage_level = battery_data['voltage']
         temperature_level = battery_data['temperature']
 
         wall_follow_time = "N/A"
@@ -96,6 +105,7 @@ class GeneralLogger(Node):
             voltage_level=voltage_level,
             temperature_level=temperature_level,
             wall_follow_time=wall_follow_time
+            delivery_time=delivery_time
         )
 
         output_path = os.path.join(self.log_dir, "robot_report.html")
