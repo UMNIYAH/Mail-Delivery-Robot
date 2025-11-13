@@ -15,7 +15,7 @@ setup(
         (os.path.join('lib', package_name, 'config'), glob(os.path.join('src/config', '*.csv'))),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py')))
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools','ollama'],
     zip_safe=True,
     maintainer='create3',
     maintainer_email='deniscengu@cmail.carleton.ca',
@@ -44,6 +44,8 @@ setup(
 	        'ai_command = control.ai_command:main',
             'report_generator = control.report_generator:main',
             'nav_parser = tools.nav_parser:main',
+            'ai_processor_node = control.ai_processor_node:main',
+            'logger = tools.logger:main',
         ],
     },
 )

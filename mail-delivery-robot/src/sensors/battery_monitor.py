@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from sensor_msgs.msg import BatteryState
-from src.tools.csv_parser import loadBatteryDockMapping
+from tools.csv_parser import loadBatteryDockMapping
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 
 class BatteryMonitor(Node):
