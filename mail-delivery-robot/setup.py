@@ -42,10 +42,11 @@ setup(
             'csv_parser = tools.csv_parser:main',
             'map = tools.map:main',
 	        'ai_command = control.ai_command:main',
-            'report_generator = control.report_generator:main',
             'nav_parser = tools.nav_parser:main',
             'ai_processor_node = control.ai_processor_node:main',
+            'report_generator = tools.report_generator:main',
             'logger = tools.logger:main',
+
         ],
     },
 )
