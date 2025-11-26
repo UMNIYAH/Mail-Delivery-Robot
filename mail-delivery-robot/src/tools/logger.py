@@ -9,7 +9,6 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 
 from sensor_msgs.msg import BatteryState
 from irobot_create_msgs.msg import DockStatus
-from jinja2 import Environment, FileSystemLoader
 
 
 class GeneralLogger(Node):
@@ -22,8 +21,17 @@ class GeneralLogger(Node):
         os.makedirs(self.log_dir, exist_ok=True)
         self.get_logger().info(f"Logs will be saved to: {self.log_dir}")
 
+        # --- Run directory inside logs ---
+        self.runs_dir = os.path.join(self.log_dir, "runs")
+        os.makedirs(self.runs_dir, exist_ok=True)
+        self.get_logger().info(f"Run files will be stored in: {self.runs_dir}")
+
         # --- Wall-following log path ---
         self.wall_log_path = os.path.join(self.log_dir, "robot_log_wallFollowing.txt")
+        self.wall_log_file = open(self.wall_log_path, "a")
+
+        # Write startup log
+        self.write_log("SYSTEM", f"Logging all data to {self.wall_log_path}")
 
         # --- Trip timing ---
         self.trip_start_time = time.perf_counter()
@@ -49,7 +57,12 @@ class GeneralLogger(Node):
         self.battery_start = self.battery['level']
         self.get_logger().info(f"Battery at trip start: {self.battery_start:.2f}%")
 
-    
+    def write_log(self, tag, message):
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        self.wall_log_file.write(f"[{timestamp}] [{tag}] {message}\n")
+        self.wall_log_file.flush()
+
+
     def battery_callback(self, msg):
         self.battery['level'] = msg.percentage * 100
         self.battery['voltage'] = msg.voltage
@@ -66,80 +79,50 @@ class GeneralLogger(Node):
             return "N/A"
 
         with open(self.wall_log_path, 'r') as f:
-            for line in reversed(f.readlines()):
-                match = re.search(r"Total wall-following time:\s*([\d.]+)s", line)
-                if match:
-                    return f"{match.group(1)} s"
+            lines = f.readlines()
+
+        for line in reversed(lines):
+            match = re.search(r"Total wall-following time:\s*([\d.]+)s", line)
+            if match:
+                return f"{match.group(1)} s"
+
         return "N/A"
 
-   
     def end_trip(self):
-        """Handles trip completion and generates reports."""
         self.trip_end_timestamp = datetime.now()
         delivery_time_sec = time.perf_counter() - self.trip_start_time
         delivery_time_str = str(timedelta(seconds=int(delivery_time_sec)))
 
-        # Battery at end
         self.battery_end = self.battery['level']
         self.battery_used = self.battery_start - self.battery_end
 
-        self.get_logger().info(f"Battery Start: {self.battery_start:.2f}% | "
-                               f"End: {self.battery_end:.2f}% | "
-                               f"Used: {self.battery_used:.2f}%")
+        self.get_logger().info(
+            f"Battery Start: {self.battery_start:.2f}% | "
+            f"End: {self.battery_end:.2f}% | "
+            f"Used: {self.battery_used:.2f}%"
+        )
 
         wall_time = self.get_wall_follow_time()
-
-        # Write run file
         self.write_run_file(self.battery, wall_time, delivery_time_sec)
-
-        # Generate HTML report
-        self.generate_html_report(self.battery, wall_time, delivery_time_str)
-
-        # Clear wall log
         open(self.wall_log_path, 'w').close()
-
         self.get_logger().info("Trip logging complete.")
-
+        self.wall_log_file.close()
 
     def write_run_file(self, battery, wall_time, delivery_time):
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filepath = os.path.join(self.log_dir, f"run_{timestamp}.txt")
+        filepath = os.path.join(self.runs_dir, f"run_{timestamp}.txt")
         self.get_logger().info(f"Writing run file: {filepath}")
 
         with open(filepath, "w") as f:
             f.write(f"battery_start={self.battery_start}\n")
             f.write(f"battery_end={self.battery_end}\n")
-            f.write(f"battery_used={self.battery_used}\n\n")
+            f.write(f"battery_used={self.battery_used}\n")
             f.write(f"delivery_time={delivery_time:.2f}\n")
             f.write(f"wall_follow_time={wall_time}\n")
             f.write(f"voltage_level={battery['voltage']}\n")
             f.write(f"temperature_level={battery['temperature']}\n")
             f.write(f"trip_start_time={self.trip_start_timestamp}\n")
             f.write(f"trip_end_time={self.trip_end_timestamp}\n")
-
-    def generate_html_report(self, battery, wall_time, delivery_time_str):
-        template_dir = os.path.dirname(os.path.realpath(__file__))
-        env = Environment(loader=FileSystemLoader(template_dir))
-        template = env.get_template("template.html")
-
-        html_path = os.path.join(self.log_dir, "robot_report.html")
-        self.get_logger().info(f"Generating HTML report: {html_path}")
-
-        html_content = template.render(
-            battery_level=battery['level'],
-            voltage_level=battery['voltage'],
-            temperature_level=battery['temperature'],
-            wall_follow_time=wall_time,
-            delivery_time=delivery_time_str,
-            battery_start=self.battery_start,
-            battery_end=self.battery_end,
-            battery_used=self.battery_used,
-            trip_start_time=self.trip_start_timestamp,
-            trip_end_time=self.trip_end_timestamp
-        )
-
-        with open(html_path, "w") as f:
-            f.write(html_content)
 
 
 def main(args=None):
