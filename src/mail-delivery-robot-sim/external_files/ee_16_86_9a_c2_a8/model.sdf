@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="ee_16_86_9a_c2_a8">
+    <static>true</static>
+    <link name="link">
+      <visual name="beacon_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+        <laser_retro>0.0</laser_retro>
+        <transparency>0.0</transparency>
+      </visual>
+    </link>
+  </model>
+</sdf>
